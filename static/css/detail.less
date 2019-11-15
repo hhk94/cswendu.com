@@ -4,10 +4,39 @@
  *
  * Released on: November 14, 2019
  */
-//
-@import "base.less";
 
-/*提示顶部弹窗*/
+@import "base.less";
+/*
+*跳转顶部按钮
+*@common
+*/
+.back-top{
+    position: fixed;
+    z-index: 8800;
+    right: 40px;
+    bottom: 40px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    height: 50px;
+    width: 40px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 14px;
+    color: whitesmoke;
+    letter-spacing: 1px;
+    cursor: pointer;
+    /* border: 1px solid whitesmoke; */
+	&:hover{
+	    opacity: 0.8;
+	}
+	&:active{
+	    opacity: 0.7;
+	}
+}
+/*
+*顶部提示弹窗
+*@common
+*/
 #alert{
 	/* background: #008000; */
 	width: 500px;
@@ -50,7 +79,153 @@
 		color: #e6a23c;
 	}
 }
-//头部公共nav
+/*
+*头部header
+*@common
+*/
+.header-box{
+	.nav-top-div{
+	    height: 44px;
+	    width: 100%;
+	    min-width: 1200px;
+	    background: #efefef;
+	    border-bottom: 1px solid #dcdcdc;
+		.roll-txt{
+		    width: calc(400px - 30px);
+		    height: 44px;
+		    line-height: 44px;
+		    padding: 0 15px;
+		    overflow: hidden;
+		    font-size: 14px;
+		    color: #6A6A6A;
+			.fa-style{
+			    padding-right: 5px;
+			}
+		}
+		.top-more{
+		    width: calc(800px - 30px);
+		    height: 44px;
+		    line-height: 44px;
+		    padding: 0 15px;
+		    overflow: hidden;
+		    font-size: 14px;
+		    color: #6A6A6A;
+			.top-more-span{
+			    float: right;
+			    margin-left: 25px;
+			}
+			
+		}
+	}
+	.nav-search-div{
+	    height: 130px;
+	    width: 100%;
+	    overflow: hidden;
+	    padding-top: 35px;
+	    background: #F9F9F9;
+		//左边logo
+		.search-logo-div{
+		    width: 300px;
+		    height: 60px;
+		    float: left;
+		    /*background: rosybrown;*/
+			.nav-logo-img{
+			    height: 55px;
+			    background: #EEEEEE;
+			    float: left;
+			}
+		}
+		//中间搜索框
+		.search-input-div{
+		    width: 550px;
+		    height: 55px;
+		    float: left;
+		    position: relative;
+		    /*background: wheat;*/
+		    margin-top: 5px;
+			.nav-search-border-style{
+			    width: 550px;
+			    height: 50px;
+			    border: 1px solid #D8D8D8;
+			    border-radius: 51px;
+			    position: absolute;
+			    top: 0;
+			    left: 0;
+			    z-index: 5100;
+			    background: white;
+			}
+			.nav-search-icon{
+			    font-size: 22px;
+			    color: #A5A5A5;
+			    position: absolute;
+			    top: 8px;
+			    left: 13px;
+			    z-index: 5300;
+			    display: inline-block;
+			}
+			.nav-search-input{
+			    width: 400px;
+			    height: 40px;
+			    border: none;
+			    outline: none;
+			    position: absolute;
+			    top: 5px;
+			    left: 44px;
+			    z-index: 5200;
+			    font-size: 18px;
+			    color: #1b1e21;
+			}
+			.nav-search-btn{
+			    width: 100px;
+			    height: 42px;
+			    line-height: 42px;
+			    letter-spacing: 5px;
+			    background: #06D191;
+			    border-radius: 44px;
+			    text-align: center;
+			    display: inline-block;
+			    position: absolute;
+			    top: 4px;
+			    right: 4px;
+			    z-index: 5400;
+			    font-size: 20px;
+			    color: white;
+			}
+			.hot-search-keywords{
+			    position: absolute;
+			    z-index: 5200;
+			    top: 53px;
+			    left: 0;
+			    height: 30px;
+			    width: 550px;
+			    overflow: hidden;
+				.hot-keywords{
+				    color: #06D191;
+				    font-size: 14px;
+				    margin-left: 15px;
+				}
+				
+			}
+		}
+		//右边电话
+		.search-tel-div{
+		    width: 340px;
+		    height: 60px;
+		    float: left;
+		    /*background: #0c5460;*/
+			.nav-tel-img{
+			    height: 55px;
+			    background: #EEEEEE;
+			    float: right;
+			}
+		}
+	}
+	
+}
+/*
+*头部公共nav
+*@common
+*/
 .nav-item-box{
     width: 100%;
 	.nav-item-title-a{
@@ -80,7 +255,10 @@
 		}
 	}
 }
-//底部公共footer
+/*
+*底部公共footer
+*@common
+*/
 .area-body{
 	.foot-title{
 		margin:125px auto 70px auto;
@@ -150,7 +328,9 @@
 		}
 	}
 }
-//寒假训练营
+/*寒假训练营
+* @url:detail/detail-winter-vacation
+*/
 .detail-winter-vacation{
 	.detail-header{
 		background: yellowgreen;
@@ -182,6 +362,10 @@
 		width: 100%;
 		height: 800px;
 		background: #e0e0e0;
+	}
+	.detail-banner>img{
+		position: absolute;
+		// width: 100%;
 	}
 	.detail-bannerBody{
 		position: relative;
@@ -383,14 +567,16 @@
 		margin-bottom: 200px;
 	}
 }
-//全年训练营
+/*全年训练营
+* @url:detail/detail-full-year
+*/
 .detail-full-year{
 	background: white;
 	img{
 		width: 100%;
 	}
 	.full-banner{
-		height: 800px;
+		// height: 800px;
 		width: 100%;
 		background: greenyellow;
 		
@@ -453,5 +639,46 @@
 		}
 		
 	}
+	.full-year-form{
+		.form-title{
+			width: 748px;
+			height: 164px;
+			margin: 270px auto 77px auto;
+		}
+		.form-body{
+			width: 1164px;
+			height: 190px;
+			margin: 0 auto;
+			border-radius: 20px;
+			overflow: hidden;
+			div{
+				margin-right: 37px;
+				float: left;;
+			}
+			.form-name{
+				width: 286px;
+				margin-top: 45px;
+				margin-left:87px;
+				h2{
+					font-size: 20px;
+					color: #8c8f94;
+					text-indent: 34px;
+				}
+				input{
+					border:1px solid #ebebec;
+					border-radius: 56px;
+					height: 56px;
+					line-height: 56px;
+					font-size: 30px;
+					text-indent: 34px;
+					width: 100%;
+				}
+			}
+			.form-phone:extend(.detail-full-year .full-year-form .form-body .form-name) {}
+			
+		}
+		
+	}
 	
 }
+

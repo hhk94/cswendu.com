@@ -30,6 +30,7 @@ include $page_path.'/common/nav.php';
 		</div>
 	</header>
 	<section class="detail-banner">
+		<img src="<?=$file_url?>/static/img/1.jpg" alt="">
 		<div class="width-1200-center detail-bannerBody">
 			<div class="detail-banner-title">
 				<img src="<?=$file_url?>/static/img/detail-winter-vacation-title1.png" 

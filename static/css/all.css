@@ -35,29 +35,6 @@ a:hover{
     margin: auto;
 }
 
-.back-top{
-    position: fixed;
-    z-index: 8800;
-    right: 40px;
-    bottom: 40px;
-    background: rgba(0, 0, 0, 0.6);
-    border-radius: 5px;
-    height: 50px;
-    width: 40px;
-    line-height: 50px;
-    text-align: center;
-    font-size: 14px;
-    color: whitesmoke;
-    letter-spacing: 1px;
-    cursor: pointer;
-    /* border: 1px solid whitesmoke; */
-}
-.back-top:hover{
-    opacity: 0.8;
-}
-.back-top:active{
-    opacity: 0.7;
-}
 
 input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{
     -webkit-appearance:textfield;
@@ -287,17 +264,7 @@ input[type="number"]{
     padding-left: 0;
 }
 
-.noBorder{
-	border:none!important ;
-}
-.noMargin{
-	margin:0!important ;
-}
-.WordJustOneLine{
-	overflow: hidden;
-	text-overflow:ellipsis;
-	white-space: nowrap;
-}
+
 
 
 

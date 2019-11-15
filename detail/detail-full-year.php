@@ -6,12 +6,13 @@ include $page_path.'/common/nav.php';
 ?>
 	<style>
 		
+		
 	</style>
 
 <!--开始-二级/三级页面内容-->
 <div class="view-page detail-full-year" id="view-page">
 	<div class="full-banner">
-		
+		<img src="<?=$file_url?>/static/img/1.jpg" alt="">
 	</div>
 	<section>
 		<img src="<?=$file_url?>/static/img/detail-full-year1.png" 
@@ -28,7 +29,7 @@ include $page_path.'/common/nav.php';
 	<section class="detail-full-year-yuyue">
 		<h1 class="yuyue-title">
 			<img src="<?=$file_url?>/static/img/detail-full-year-title1.png"
-					data-img_name="detail-full-year3.png" alt="全年集训营" title="全年集训营"/>
+					data-img_name="detail-full-year-title1.png" alt="全年集训营" title="全年集训营"/>
 		</h1>
 		<div class="width-1200-center ">
 			<div class="full-year-yuyue-item">
@@ -78,7 +79,22 @@ include $page_path.'/common/nav.php';
 		</div>
 		<div class="full-year-yueyue-btn">预约参加训练营</div>
 	</section>
-
+	<section class="full-year-form">
+		<h1 class="form-title">
+			<img src="<?=$file_url?>/static/img/detail-full-year-title2.png"
+					data-img_name="detail-full-year-title2.png" alt="全年集训营" title="全年集训营"/>
+		</h1>
+		<div class="form-body shadow-lg">
+			<div class="form-name">
+				<h2>姓名</h2>
+				<input type="text">
+			</div>
+			<div class="form-phone">
+				<h2>电话</h2>
+				<input type="text">
+			</div>
+		</div>
+	</section>
 </div>
 <!--结束-二级/三级页面内容-->
 
