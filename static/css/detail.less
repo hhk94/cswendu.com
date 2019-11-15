@@ -1,0 +1,457 @@
+/**
+ * common style by HK(350839123@qq.com)
+ * Development on less
+ *
+ * Released on: November 14, 2019
+ */
+//
+@import "base.less";
+
+/*提示顶部弹窗*/
+#alert{
+	/* background: #008000; */
+	width: 500px;
+	position: fixed;
+	top:50px;
+	left:50%;
+	z-index: 908080;
+	transform: translateX(-50%);
+	li{
+		width: 100%;
+		/* text-indent: 24px; */
+		font-size: 14px;
+		overflow: hidden;
+		opacity: 1;
+		padding: 8px 16px;
+		display: flex;
+		align-items: center;
+		transition: opacity .2s;
+		border-radius: 5px;
+		margin-bottom: 5px;;
+		transition: all 0.3s;
+		.alert-icon{
+			margin-right: 10px;;
+		}
+	}
+	.alert-error{
+		background: #fef0f0;
+		color: #f56c6c;
+	}
+	.alert-default{
+		background: #f4f4f5;
+		color: #909399;
+	}
+	.alert-success{
+		background: #f0f9eb;
+		color: #67c23a;
+	}
+	.alert-warn{
+		background-color: #fdf6ec;
+		color: #e6a23c;
+	}
+}
+//头部公共nav
+.nav-item-box{
+    width: 100%;
+	.nav-item-title-a{
+	    text-decoration: none;
+		.nav-item-title{
+		    width: calc(100%/9 - 0px);
+		    float: left;
+		    font-weight: 500;
+		    font-size: 18px;
+		    color: black;
+		    background: #F9F9F9;
+		    text-align: center;
+		    height: 50px;
+		    line-height: 50px;
+		    overflow: hidden;
+		    padding-left: 5px;
+		    padding-right: 5px;
+		    letter-spacing: 2px;
+			&:hover{
+				background: @footer-area-hover-background-color;
+				color: @footer-area-hover-color;
+			}
+		}
+		.nav-item-title-active{
+		    background: @footer-area-hover-background-color;
+		    color: @footer-area-hover-color;
+		}
+	}
+}
+//底部公共footer
+.area-body{
+	.foot-title{
+		margin:125px auto 70px auto;
+	}
+	
+	.home-cell-title-bottom{
+		text-align: center;
+	}
+	.area-tabs{
+		margin-bottom:45px;
+		.area-tabs-item{
+			.btn;
+			color: #333333;
+			font-size: 22px;
+			margin:0 4px 10px 4px;
+			/* width: 101px; */
+			height: 34px;
+			border-radius: 34px;;
+			line-height: 34px;
+			float: left;
+			padding: 0 10px;
+			&:hover{
+				background: @footer-area-hover-background-color;
+				color: @footer-area-hover-color;
+			}
+		}
+		.area-tabs-item.selected{
+			background: @footer-area-hover-background-color;
+			color: @footer-area-hover-color;
+		}
+	}
+	.area-detail-body{
+		.area-line{
+			margin-left: 40px;
+			border-left: 2px solid #45dbac;
+			padding-left: 24px;
+			&:last-of-type{
+				border-left:none;
+				padding-left: 26px;
+			}
+			.area-name{
+				float: left;
+				position: relative;
+				&::after{
+					position: absolute;
+					content: '';
+					display: block;
+					visibility: visible;
+					width: 12px;
+					height: 12px;
+					background: #45dbac;
+					left: -31px;
+					top: 6px;
+					border-radius: 50%;
+					
+				}
+			}
+			.area-detail{
+				float: left;
+			}
+			
+			div{
+				margin-top: -10px;
+				margin-bottom: 30px;
+			}
+			
+		}
+	}
+}
+//寒假训练营
+.detail-winter-vacation{
+	.detail-header{
+		background: yellowgreen;
+		height: 198px;
+		overflow: hidden;
+	}
+	.detail-logo{
+		margin-top: 69px;
+		float: left;
+	}
+	.detail-jump{
+		float: right;
+		margin-top: 69px;
+		margin-right: 200px;
+	}
+	.detail-jump-item{
+		height: 59px;
+		line-height: 59px;
+		padding: 0 15px;
+		color: #3a3d4b;
+		font-size: 14px;
+	}
+	.detail-jump-item.selected{
+		font-size: 16px;
+		color: #222328;
+		font-weight: bold;
+	}
+	.detail-banner{
+		width: 100%;
+		height: 800px;
+		background: #e0e0e0;
+	}
+	.detail-bannerBody{
+		position: relative;
+		/* height: 100%; */
+	}
+	.detail-banner-title{
+		position: absolute;
+		top:24px;
+		left:50%;
+		transform: translateX(-50%);
+		width: 400px;
+		height: 230px;
+		/* background: #34CE57; */
+	}
+	.detail-form-body{
+		width: 1164px;
+		height: 360px;
+		background: white;
+		position: absolute;
+		top: 575px;
+		left:50%;
+		transform: translateX(-50%);
+		border-radius: 20px;;
+		
+	}
+	.detail-form-title{
+		width: 472px;
+		height: 137px;
+		/* background: palevioletred; */
+	}
+	.detail-form-body>div{
+		margin:20px auto;
+	}
+	.detail-body1>img{
+		width: 100%;
+	}
+	.detail-body2-title{
+		width: 1016px;
+		height: 185px;
+		/* background: #B3D7FF; */
+		margin:210px auto 88px auto;
+	}
+	.detail-body2-item{
+		width: 22%;
+		margin: 0 1.5%;
+		border: 2px solid #f2f2f2;
+		height: 330px;
+		float: left;
+		transition: all 0.5s;
+		box-sizing: border-box;
+	}
+	
+	.detail-body2-item-img{
+		background: url(../img/detail-winter-vacation-title3-logo1.png) no-repeat center center/contain;
+		width: 70px;
+		height: 70px;
+		margin: 52px auto 40px auto;
+	}
+	.detail-body2-item-img>img{
+		width: 100%;
+	}
+	.detail-body2-item>h1{
+		color:#5c5c5c;
+		font-size: 24px;
+		font-weight: bold;
+		text-align: center;
+		margin-bottom: 15px;
+	}
+	.detail-body2-item>p{
+		margin-bottom: 15px;
+		color: #979797;
+		font-size: 16px;
+		text-align: center;
+	}
+	.detail-body2-item.selected{
+		background: #3b91d1;
+		border: none;
+		
+	}
+	.detail-body2-item.selected>p,.detail-body2-item.selected>h1{
+		color: white;
+	}
+	.detail-body2-item:hover{
+		
+		background: @detail-winter-vacation-hover-background-color;
+		border-color: white;
+	}
+	.detail-body2-item:hover>p,.detail-body2-item:hover>h1{
+		color: @detail-winter-vacation-hover-color;
+	}
+	.detail-body2-item:hover>.detail-body2-item-img{
+		background: url(../img/detail-winter-vacation-title3-logo2.png) no-repeat center center/contain;
+	}
+	.detail-body2-center{
+		margin-bottom: 286px;
+	}
+	
+	.detail-hot{
+		overflow: hidden;
+		background: #eef4f5;
+	}
+	.detail-hot-title{
+		width: 656px;
+		height: 166px;
+		/* background-color: rosybrown; */
+		margin: 150px auto;
+	}
+	.detail-hot-item{
+		
+		height: 356px;
+		width: 100%;
+		box-shadow: 0 0 20px #bdbdbd;
+		margin-bottom: 60px;
+		&:hover{
+			.detail-hot-item-word{
+				background: @detail-winter-vacation-hover-background-color;
+				color: @detail-winter-vacation-hover-color;
+			}
+			div,p,h1{
+				color: white;
+			}
+			.hot-item-ask{
+				background: white;
+				color: #777777;
+			}
+		}
+	}
+	.detail-hot-item>div{
+		float: left;
+	}
+	.detail-hot-item-img{
+		width: 376px;
+		height: 100%;
+		background-color: #45DBAC;
+	}
+	.detail-hot-item-word{
+		transition: all 0.3s;
+		width:calc(~"100% - 376px");
+		/* background-color: paleturquoise; */
+		height: 100%;
+	}
+	.detail-hot-item-word>div{
+		margin: 40px 0;
+		float: left;
+	}
+	.hot-item-word-left{
+		width: 548px;
+		/* background: greenyellow; */
+		height: calc(~"100% - 80px");
+		/* border-left:1px solid #e0e0e0; */
+		border-right:1px solid #e0e0e0;
+		padding-left:108px;
+	}
+	.hot-item-word-left-border-left{
+		border-left:1px solid #e0e0e0;
+		border-right:none;
+	}
+	.hot-item-word-left>h1{
+		font-size: 40px;
+		color: #368fc7;
+		font-weight: bold;
+		margin: 60px 0 35px 0;
+	}
+	.hot-item-word-left>p{
+		font-size: 26px;
+		color: #777777;
+		margin-bottom: -4px;;
+	}
+	.hot-item-word-right-price-item{
+		float: left;
+		margin: 20px 15px 0 15px;;
+		
+	}
+	.hot-item-word-right-price-item>div{
+		
+		font-size: 20px;
+		color: #575757;
+		text-align: center;
+	}
+	.hot-item-word-right-price-item>div+div{
+		color: #ff5252;
+	}
+	.hot-item-word-right-price-item>div>span{
+		font-size: 36px;
+	}
+	.hot-item-ask{
+		.btn;
+		color:@detail-winter-vacation-hover-color ;
+		background-color:@detail-winter-vacation-hover-background-color ;
+		width: 160px;
+		height: 48px;
+		border-radius: 48px;
+		line-height: 48px;
+		border: 1ps solid #b3d3ef;
+		box-shadow: 0 0 20px #1076cd;
+		margin: 50px auto 0 auto;
+	}
+	.detail-hot-center{
+		margin-bottom: 200px;
+	}
+}
+//全年训练营
+.detail-full-year{
+	background: white;
+	img{
+		width: 100%;
+	}
+	.full-banner{
+		height: 800px;
+		width: 100%;
+		background: greenyellow;
+		
+	}
+	.detail-full-year-yuyue{
+		padding-bottom: 1px;
+		.yuyue-title{
+			margin: 82px auto 60px auto;
+			width: 266px;
+			height: 75px;
+		}
+		.full-year-yuyue-item{
+			width: 275px;
+			margin-bottom: 40px;;
+			.img-box{
+				width:100%;
+				height: 296px;
+				background: gray;
+			}
+			.title{
+				height: 138px;
+				line-height: 138px;
+				border: 1px solid #e2e2e2;
+				border-top: none;
+				text-align: center;
+				color: #0f0f0f;
+				font-size: 20px;
+				transition: all 0.3s;
+			}
+			&:hover{
+				.title{
+					background: @detail-full-year-hover-background-color;
+					color:@detail-full-year-hover-color;
+				}
+			}
+		}
+	
+		.width-1200-center{
+			display: flex;
+			justify-content: space-between;
+			
+			
+		}
+		.width-996-center{
+			display: flex;
+			justify-content: space-between;
+			width: 996px;
+			margin: 0 auto;
+		}
+		.full-year-yueyue-btn{
+			.btn;
+			width: 212px;
+			height: 46px;
+			line-height: 46px;
+			border-radius: 46px;
+			color: @detail-full-year-hover-color;
+			background: @detail-full-year-hover-background-color;
+			box-shadow: 0 0 20px @detail-full-year-hover-background-color;
+			margin: 10px auto 210px auto;
+		}
+		
+	}
+	
+}
