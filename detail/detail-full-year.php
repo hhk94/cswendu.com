@@ -1,8 +1,8 @@
 <?php
-$title = '实例页面'; // 模块页标题，每个页面自定义
+$title = '全年集训营'; // 模块页标题，每个页面自定义
 $page_path = dirname(dirname(__FILE__)); // 项目index的根目录
 include $page_path.'/common/head.php';
-include $page_path.'/common/nav.php';
+include $page_path.'/common/secNav.php';
 ?>
 	<style>
 		

@@ -342,6 +342,7 @@
 			}
 		}
 		.area-detail-body{
+			min-height: 250px;;
 			.area-line{
 				margin-left: 40px;
 				border-left: 2px solid #45dbac;
@@ -376,6 +377,19 @@
 					margin-bottom: 30px;
 				}
 				
+			}
+		}
+	}
+	.wechat-parent{
+		position: relative;
+		.wechat-body{
+			position: absolute;
+			right: 0;
+			top: -205px;;
+			.code-img{
+				float: left;
+				margin:0 23px ;
+				width: 153px;
 			}
 		}
 	}
@@ -1097,7 +1111,9 @@
 		}
 	}
 }
-
+/*考研资讯列表页
+* @url:kaoyanInformation
+*/
 .information{
 	.center{
 		
@@ -1136,11 +1152,24 @@
 						height: 160px;
 						display: block;
 						border-bottom: 1px solid #d0d0d0;
+						
+						&:hover{
+							.word{
+								h1{
+									color: #45dbac;
+									transition: all 0.1s;
+								}
+							}
+						}
 						.img{
 							float: left;
 							width: 256px;
 							height: 140px;
 							background: gainsboro;;
+							overflow: hidden;
+							img{
+								width: 100%;
+							}
 						}
 						.word{
 							height: 140px;
@@ -1170,6 +1199,7 @@
 								i{
 									margin-left: 16px;
 									color: #d2d2d2;
+									margin-right: 7px;
 								}
 							}
 						}
@@ -1217,7 +1247,10 @@
 						}
 					}
 					.list{
-						a{
+						a{	
+							&:hover{
+								color: #45dbac;
+							}
 							font-size: 14px;
 							color: #4d4d4d;
 							position: relative;
@@ -1240,16 +1273,52 @@
 					}
 				}
 				.hot-communication:extend(.information .center .width-1200-center .right .hot-recommend all){
-					a{
-						span{
-							color: #45dbac;
+					.list{
+						.information-num{
 							&:hover{
-								text-decoration: underline;
+								color:#4d4d4d ;
+							}
+							span{
+								color: #45dbac;
+								&:hover{
+									text-decoration: underline;
+								}
 							}
 						}
 					}
 					div{
 						margin-bottom: 10px;
+					}
+				}
+			}
+		}
+		
+	}
+}
+/*考研资讯详情页
+* @url:detail-information
+*/
+.detail-information:extend(.information all){
+	.center{
+		.width-1200-center{
+			.center-body{
+				.title{
+					padding-bottom: 10px;
+					text-indent: 45px;
+					&::after{
+						left: 45px;
+					};
+				}
+				.sectitle{
+					text-align: left;
+					font-size: 14px;
+					color: #a1a1a1;
+					padding-bottom: 30px;
+					border-bottom: 1px solid #d3d3d3;
+					margin-bottom: 30px;
+					text-indent: 45px;
+					span{
+						margin-right: 10px;;
 					}
 				}
 			}

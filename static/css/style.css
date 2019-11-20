@@ -623,9 +623,12 @@
 }
 
 
-
+.nav-top-div{
+	border-top: 1px solid #d0d0d0;
+	padding-top: 10px;;
+}
 .dir-div{
-
+	margin-bottom: 20px;;
 }
 .dir-fa{
     margin-left: 5px;

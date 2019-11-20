@@ -396,6 +396,7 @@ let all = {
 	            url: url,
 	            data: data,
 	            success: function(d){
+					// console.log(d)
 					 successfn&&successfn(d);
 					 del_loading_div()
 	            },
@@ -416,6 +417,7 @@ let all = {
 	getItemDataAttr(item,DataName){
 			return item.data(DataName);
 	},
+	//信息弹窗
 	message({type='',text='这是个弹窗',timeout=2000} = {}){
 			let i = all.numForMessage;	
 			switch (type){
@@ -453,6 +455,7 @@ let all = {
 			},timeout)
 			all.numForMessage++
 	},
+	//警告弹窗
 	notification({type='',text='这是个弹窗',timeout=2000} = {}){
 			let i = all.numForNotification;	
 			switch (type){
@@ -510,4 +513,28 @@ let all = {
 			},timeout)
 			all.numForNotification++
 	},
+	//字符串转日期
+	timestampToTime(timestamp) {
+	        var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+	        Y = date.getFullYear() + '-';
+	        M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
+	        D = date.getDate() + ' ';
+	        h = date.getHours() + ':';
+	        m = date.getMinutes() + ':';
+	        s = date.getSeconds();
+	        return Y+M+D+h+m+s;
+	},
+	//取url中的参数值
+	getQueryString(name) {
+	  var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	  var r = window.location.search.substr(1).match(reg);
+	  if (r != null) return unescape(r[2]); return null;
+	},
+	//专门针对后端返回时间格式处理时间20191119064333
+	getTime(time){
+		let year = time.slice(0,4)
+		let mounth = time.slice(4,6)
+		let date = time.slice(6,8)
+		return [year,mounth,date]
+	}
 }

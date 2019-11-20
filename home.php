@@ -48,34 +48,34 @@ include $page_path.'/common/nav.php';
                 <ul class="ul-style">
                     <li class="show-imp-info-li click">全年集训</li>
                     <li class="show-imp-info-li click">半年集训</li>
-                    <li class="show-imp-info-li click">鹰飞集训</li>
                     <li class="show-imp-info-li click">秋季集训</li>
-                    <li class="show-imp-info-li click">二战集训</li>
-                    <li class="show-imp-info-li click">会计硕士</li>
-                    <li class="show-imp-info-li click">西医综合</li>
-                    <li class="show-imp-info-li click">名校定向</li>
+                    <li class="show-imp-info-li click">冲刺集训</li>
+                    <li class="show-imp-info-li click">暑假集训</li>
+                    <li class="show-imp-info-li click">寒假硕士</li>
+                    <li class="show-imp-info-li click">2020复试营</li>
+                    <li class="show-imp-info-li click">二战集训营</li>
 
                     <li class="clear"></li>
                 </ul>
             </div>
             <div class="show-imp-info-cell">
-                <h4 class="show-imp-info-title">VIP高端辅导<span class="show-imp-info-span">全日制</span></h4>
+                <h4 class="show-imp-info-title">彩虹卡系列<span class="show-imp-info-span">全日制</span></h4>
                 <ul class="ul-style">
+                    <li class="show-imp-info-li click">飞跃彩虹卡</li>
+                    <li class="show-imp-info-li click">绽放彩虹卡</li>
                     <li class="show-imp-info-li click">魔力彩虹卡</li>
-                    <li class="show-imp-info-li click">特训彩虹卡</li>
-                    <li class="show-imp-info-li click">专业课协议班</li>
-                    <li class="show-imp-info-li click">个性化一对一</li>
+                    <li class="show-imp-info-li click">菁英彩虹卡</li>
 
                     <li class="clear"></li>
                 </ul>
             </div>
             <div class="show-imp-info-cell">
-                <h4 class="show-imp-info-title">精品标准课<span class="show-imp-info-span">全日制</span></h4>
+                <h4 class="show-imp-info-title">精品定制课<span class="show-imp-info-span">全日制</span></h4>
                 <ul class="ul-style">
-                    <li class="show-imp-info-li click">超级无忧卡</li>
-                    <li class="show-imp-info-li click">精品全程班</li>
-                    <li class="show-imp-info-li click">统考专业版</li>
-                    <li class="show-imp-info-li click">按科目选课</li>
+                    <li class="show-imp-info-li click">考研1V1</li>
+                    <li class="show-imp-info-li click">在职考研</li>
+                    <li class="show-imp-info-li click">教育学定向</li>
+                    <li class="show-imp-info-li click">法律(非法学)定向</li>
 
                     <li class="clear"></li>
                 </ul>
@@ -508,7 +508,7 @@ include $page_path.'/common/nav.php';
 				$('.wendu-news-ul').html('')
 				$.isArray(content)&&content.forEach((item,index)=>{
 					if(index<6){
-						let html = `<li class="wendu-news-li"><a href="" target="_blank" title="文都资讯">
+						let html = `<li class="wendu-news-li"><a href="<?=$file_url?>detail/detail-information.php?route=nav&nav=kaoyanInformation&news_info_id=${item.news_info_id}" target="_blank" title="文都资讯">
 						<span class="wendu-news-span">[${class_name}]</span>${item.title}</a></li>`
 						 $('.wendu-news-ul').append(html)
 					}
@@ -540,7 +540,7 @@ include $page_path.'/common/nav.php';
 				// $('.wendu-news-ul-other').html('')
 				if($.isArray(content)&&content.length!=0){
 					let html = `<li class="wendu-news-li">
-					<a href="" target="_blank" title="文都资讯">
+					<a href="<?=$file_url?>detail/detail-information.php?route=nav&nav=kaoyanInformation&news_info_id=${content[0].news_info_id}" target="_blank" title="文都资讯">
 					<span class="wendu-news-span">${class_name}|</span>${content[0].title}</a></li>`
 					$('.wendu-news-ul-other').append(html)
 				}

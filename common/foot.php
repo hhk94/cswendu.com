@@ -31,8 +31,11 @@
 		</div>
 	</section>
     <div class="width-1200-center border-top-CBC9C7">
-        <div class="padding-lr-15">
-
+        <div class="padding-lr-15 wechat-parent">
+			<div class="wechat-body">
+				<div class="code-img"><img src="<?=$file_url?>/static/img/footer-wechat-code.png" data-img_name="footer-wechat-code.png" alt="文都考研微信二维码" title="文都考研微信二维码"/></div>
+				<div class="code-img"><img src="<?=$file_url?>/static/img/footer-webo-code.png" data-img_name="footer-webo-code.png" alt="文都考研微博二维码" title="文都考研微博二维码"/></div>
+			</div>
             <div class="friend-url-div">
                 <span class="friend-url-span select-none">友情链接：</span>
                 <a class="friend-url-a" href="#" target="_blank" title="湖北文都考研官网">湖北文都</a>
