@@ -6,70 +6,19 @@ include $page_path.'/common/nav.php';
 ?>
 <style>
 	
-	.banner-slider-div{
-		background: black;
-	}
-	.kaoyankecheng-sub{
-		padding: 0;
-		width: 272px;
-		border-radius: 20px;
-		overflow: hidden;
-		background: white;
-	}
-	.kaoyankecheng-sub-title{
-		height: 50px;
-		width:100%;
-		background-image: linear-gradient(to right, #ef4c4f,#f66aa9);
-		font-size: 18px;
-		text-align: center;
-		line-height: 50px;
-		font-weight: bold;
-	}
-	.kaoyankecheng-sub-body{
-		margin: 9px 16px;
-		border-bottom:1px solid #f9f9f9;
-		color:black;
-	}
-	.kaoyankecheng-sub-body:nth-of-type(1){
-		margin-top: 55px;
-	}
-	.kaoyankecheng-sub-icon{
-		color: #dedede;
-	}
-	.kaoyankecheng-sub-name{
-		color: #050505;
-		margin:0 10px
-	}
-	.kaoyankecheng-sub-body>input{
-		width: 145px;
-		outline: none;
-	}
-	.kaoyankecheng-btn{
-		width: 144px;
-		height: 36px;
-		border-radius: 36px;;
-		line-height: 36px;
-		text-align: center;
-		margin: 9px auto;
-	}
-	.kaoyankecheng-btn-yuyue{
-		color: white;
-		background: #ef4c4f;
-		
-	}
-	.kaoyankecheng-btn-ask{
-		border: 1px solid #d5d5d5;
-		color: #393939;
-	}
-	.banner-slider-div{
-		overflow: hidden;
-	}
-	.banner-slider-div>img{
-		width: 100%;
-	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </style>
 <!--开始-模块页内容-->
-<section class="view-section clear" id="view-main">
+<section class="view-section clear kaoyankecheng" id="view-main">
 
     <div class="banner-div select-none">
         <div class="banner-slider-div">

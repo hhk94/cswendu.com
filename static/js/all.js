@@ -55,13 +55,17 @@ function page_style_init() {
     // 渲染nav选中效果
     let that_nav = getThisUrlParam("", "nav");
     $(".nav-item-title").removeClass("nav-item-title-active");
+    $(".detail-jump-item").removeClass("selected");
+	
     if (that_nav === ""){
         make_notice([{"msg": "网址参数错误(nav=?)"}], 60000);
     }else {
+		
         $(".nav-"+that_nav).addClass("nav-item-title-active");
+        $(".nav-"+that_nav).addClass("selected");
     }
 
-
+	
 }
 
 
@@ -292,6 +296,10 @@ function check_text_black_keyword(string, black_keyword_array, _class, call_func
 function cal_nav(){
 
     let ele = document.getElementsByClassName("nav-item-box")[0];
+    // let ele = document.getElementById("nav-item-box-one");
+	if(ele==null||ele==undefined||ele==""){
+		return false;
+	}
     let height = ele.offsetTop;
     let window_height = window.innerHeight;
     let scroll_height = $(window).scrollTop();
@@ -325,6 +333,7 @@ $(document).on("click", ".back-top", function () {
 
 let all = {
 	numForMessage:0,
+	numForNotification:0,
 	log(item){
 		console.log(item)
 	},
@@ -361,7 +370,7 @@ let all = {
 			url:url,//ajax请求url
 			successfn:function(res){//ajax请求成功的回调
 				let jsonRes = $.parseJSON( res );
-				all.log(jsonRes)
+				// all.log(jsonRes)
 				if(jsonRes.state==0){
 					let params={
 						type:'warn',
@@ -411,27 +420,27 @@ let all = {
 			let i = all.numForMessage;	
 			switch (type){
 				case 'default':
-					$('#alert').append(
+					$('#hk-alert').append(
 					`<li class="alert-default alert${i}"><i class="fa fa-info-circle alert-icon"></i>${text}</li>`
 					)
 					break;
 				case 'error':
-					$('#alert').append(
+					$('#hk-alert').append(
 					`<li class="alert-error alert${i}"><i class="fa fa-close  alert-icon"></i>${text}</li>`
 					)
 					break;
 				case 'success':
-					$('#alert').append(
+					$('#hk-alert').append(
 					`<li class="alert-success alert${i}"><i class="fa fa-sign-language alert-icon"></i>${text}</li>`
 					)
 					break;	
 				case 'warn':
-					$('#alert').append(
+					$('#hk-alert').append(
 					`<li class="alert-warn alert${i}"><i class="fa fa-exclamation-circle alert-icon"></i>${text}</li>`
 					)
 					break;	
 				default:
-					$('#alert').append(
+					$('#hk-alert').append(
 					`<li class="alert-default alert${i}"><i class="fa fa-info-circle alert-icon"></i>${text}</li>`
 					)
 				break;
@@ -443,5 +452,62 @@ let all = {
 				}, 300);
 			},timeout)
 			all.numForMessage++
-	}
+	},
+	notification({type='',text='这是个弹窗',timeout=2000} = {}){
+			let i = all.numForNotification;	
+			switch (type){
+				case 'default':
+					$('#hk-notification').append(
+					// `<li class="alert-default alert${i}"><i class="fa fa-info-circle alert-icon"></i>${text}</li>`
+					`<li class="notification-item notification${i}">
+						<h1><i class="fa fa-info-circle notification-default"></i>提示</h1>
+						<p>${text}</p>
+					</li>`
+					)
+					break;
+				case 'error':
+					$('#hk-notification').append(
+					// `<li class="alert-error alert${i}"><i class="fa fa-close  alert-icon"></i>${text}</li>`
+					`<li class="notification-item notification${i}">
+						<h1><i class="fa fa-close notification-error"></i>提示</h1>
+						<p>${text}</p>
+					</li>`
+					)
+					break;
+				case 'success':
+					$('#hk-notification').append(
+					// `<li class="alert-success alert${i}"><i class="fa fa-sign-language alert-icon"></i>${text}</li>`
+					`<li class="notification-item notification${i}">
+						<h1><i class="fa fa-sign-language notification-success"></i>提示</h1>
+						<p>${text}</p>
+					</li>`
+					)
+					break;	
+				case 'warn':
+					$('#hk-notification').append(
+					// `<li class="alert-warn alert${i}"><i class="fa fa-exclamation-circle alert-icon"></i>${text}</li>`
+					`<li class="notification-item notification${i}">
+						<h1><i class="fa fa-exclamation-circle notification-warn"></i>提示</h1>
+						<p>${text}</p>
+					</li>`
+					)
+					break;	
+				default:
+					$('#hk-notification').append(
+					// `<li class="alert-default alert${i}"><i class="fa fa-info-circle alert-icon"></i>${text}</li>`
+					`<li class="notification-item notification${i}">
+						<h1><i class="fa fa-info-circle"></i>提示</h1>
+						<p>${text}</p>
+					</li>`
+					)
+				break;
+			}
+			setTimeout(function(){
+				$('.notification'+i).fadeOut(800);
+				setTimeout(function () {
+				   $('.notification'+i).remove()
+				}, 1200);
+			},timeout)
+			all.numForNotification++
+	},
 }

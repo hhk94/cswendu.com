@@ -49,7 +49,7 @@
     </div>
 </header>
 
-<nav class="nav-item-box clear">
+<nav class="nav-item-box clear" id="nav-item-box-one">
     <div class="width-1200-center">
         <a class="nav-item-title-a" href="<?=$file_url?>home.php?route=nav&nav=home" title="文都首页" target="_self"><div class="nav-item-title click nav-home ">文都首页</div></a>
         <a class="nav-item-title-a" href="<?=$file_url?>kaoyankecheng.php?route=nav&nav=kaoyankecheng" title="考研课程" target="_self"><div class="nav-item-title click nav-kaoyankecheng">考研课程</div></a>
@@ -58,8 +58,8 @@
         <a class="nav-item-title-a" href="#" title="二战考研" target="_self"><div class="nav-item-title click">二战考研</div></a>
         <a class="nav-item-title-a" href="#" title="在职考研" target="_self"><div class="nav-item-title click">在职考研</div></a>
         <a class="nav-item-title-a" href="#" title="文都师资" target="_self"><div class="nav-item-title click">文都师资</div></a>
-        <a class="nav-item-title-a" href="#" title="考研资讯" target="_self"><div class="nav-item-title click">考研资讯</div></a>
-        <a class="nav-item-title-a" href="#" title="学员社区" target="_self"><div class="nav-item-title click">学员社区</div></a>
+        <a class="nav-item-title-a" href="<?=$file_url?>kaoyanInformation.php?route=nav&nav=kaoyanInformation" title="考研资讯" target="_self"><div class="nav-item-title click nav-kaoyanInformation">考研资讯</div></a>
+        <a class="nav-item-title-a" href="#" title="考研社区" target="_self"><div class="nav-item-title click">考研社区</div></a>
 
         <div class="clear"></div>
     </div>

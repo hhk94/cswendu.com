@@ -264,7 +264,12 @@ input[type="number"]{
     padding-left: 0;
 }
 
-
+.home-banner a{
+	display: block;
+}
+.home-banner a>img{
+	width: 100%;
+}
 
 
 

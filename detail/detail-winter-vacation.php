@@ -2,7 +2,7 @@
 $title = '实例页面'; // 模块页标题，每个页面自定义
 $page_path = dirname(dirname(__FILE__)); // 项目index的根目录
 include $page_path.'/common/head.php';
-include $page_path.'/common/nav.php';
+include $page_path.'/common/secNav.php';
 ?>
 	<style>
 		
@@ -10,44 +10,31 @@ include $page_path.'/common/nav.php';
 
 <!--开始-二级/三级页面内容-->
 <div class="view-page detail-winter-vacation" id="view-page">
-	<header class="detail-header">
-		<div class="width-1200-center clearfix ">
-			<div class="search-logo-div detail-logo">
-			    <img src="<?=$file_url?>/static/img/logo.png" 
-				data-img_name="logo.png" class="nav-logo-img" alt="文都考研logo" title="文都考研logo"/>
-			</div>
-			<div class="detail-jump">
-				<a href="<?=$file_url?>/home.php?route=nav&nav=home" class="detail-jump-item">首页</a>
-				<a href="#" class="detail-jump-item">全年集训营</a>
-				
-				<a href="#" class="detail-jump-item ">半年集训营</a>
-				<a href="#" class="detail-jump-item selected">寒假集训营</a>
-				
-				<a href="#" class="detail-jump-item">暑假封闭营</a>
-				<a href="#" class="detail-jump-item">百日冲刺营</a>
-				<a href="#" class="detail-jump-item">复试营</a>
-			</div>
-		</div>
-	</header>
+
 	<section class="detail-banner">
-		<img src="<?=$file_url?>/static/img/1.jpg" alt="">
-		<div class="width-1200-center detail-bannerBody">
-			<div class="detail-banner-title">
-				<img src="<?=$file_url?>/static/img/detail-winter-vacation-title1.png" 
-				data-img_name="detail-winter-vacation-title1.png" 
-				alt="寒假集训营" title="寒假集训营">
-			</div>
+		<img src="<?=$file_url?>/static/img/detail-winter-vacation.png" data-img_name="detail-winter-vacation.png" alt="寒假集训营">
+		
+	</section>
+	<section class="detail-body1">
 			<div class="detail-form-body shadow-lg ">
 				<div class="detail-form-title">
 					<img src="<?=$file_url?>/static/img/detail-winter-vacation-title2.png"
 					data-img_name="detail-winter-vacation-title2.png" 
 					alt="寒假集训营" title="寒假集训营">
 				</div>
-				<div class="detail-form"></div>
+				<div class="detail-form">
+					<div class="form-name">
+						<h2>姓名</h2>
+						<input type="text">
+					</div>
+					<div class="form-phone">
+						<h2>电话</h2>
+						<input type="tel" class="noBorder shadow-lg " >
+					</div>
+					<div class="hk-btn">立即领取</div>
+				</div>
 			</div>
-		</div>
-	</section>
-	<section class="detail-body1">
+
 		<img src="../static/img/detail-body1.png" 
 		data-img_name="detail-body1.png" title="" alt="detail-body1">
 	</section>
@@ -196,11 +183,60 @@ include $page_path.'/common/nav.php';
 
 </script>
 <script>
+	
     // 页面数据入口，如有动态数据渲染，请以此函数为调用作为开始
     function page_data_init(){
         console_log("开始渲染数据");
 
     }
+	$('.hk-btn').click(function(){
+		let name = $('.form-name input').val()
+		let phone = $('.form-phone input').val()
+		if(name==''||name==null||name.length==0){
+			all.notification({
+				type:'error',
+				text:'请填写您的姓名',
+				timeout:3000
+			})
+			return false;
+		}else if(phone==''||phone==null||phone.length==0){
+			all.notification({
+				type:'error',
+				text:'请填写您的联系电话',
+				timeout:3000
+			})
+			return false;
+		}else{
+			let isPhone = /^1(3|4|5|6|7|8|9)\d{9}$/;
+			if(!isPhone.test(phone)){
+				all.notification({
+					type:'error',
+					text:'对不起，您的手机号格式不正确，请检查',
+					timeout:3000
+				})
+				return false;
+			}else{
+				// ajax
+				let params = {
+					method:'POST',//ajax请求方法
+					data:{
+						app_class:'web',
+						user_token:'token',
+						resource:'寒假集训营报名'
+					},//ajax请求参数
+					url:"<?=$api_url?>"+"app/check_user_phone",//ajax请求url
+					successfn:function(res){//ajax请求成功的回调
+					console_log(res)
+						let jsonRes = $.parseJSON( res );
+						// all.log(jsonRes)
+					
+					}
+				}
+				all.sendAjax(params)
+			}
+		}
+		
+	})
 </script>
 <!--结束-页面js-->
 

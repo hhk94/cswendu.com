@@ -37,7 +37,7 @@
 *顶部提示弹窗
 *@common
 */
-#alert{
+#hk-alert{
 	/* background: #008000; */
 	width: 500px;
 	position: fixed;
@@ -77,6 +77,55 @@
 	.alert-warn{
 		background-color: #fdf6ec;
 		color: #e6a23c;
+	}
+}
+/*
+*右边公共通知
+*@common
+*/
+#hk-notification{
+	position: fixed;
+	z-index: 908080;
+	right: 20px;
+	top:70px;
+	.notification-item{
+		margin-bottom: 20px;
+		box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+		transition: opacity .3s,transform .3s,left .3s,right .3s,top .4s,bottom .3s;
+		width: 330px;
+		padding: 14px 26px 14px 13px;
+		border-radius: 8px;
+		box-sizing: border-box;
+		border: 1px solid #ebeef5;
+		background: white;
+		h1{	
+			i{
+				margin-right:8px;
+			}
+			.notification-error{
+				color: #f56c6c;
+			}
+			.notification-default{
+				color: #909399;
+			}
+			.notification-success{
+				color: #67c23a;
+			}
+			.notification-warn{
+				color: #e6a23c;
+			}
+			font-weight: 700;
+			font-size: 16px;
+			color: #303133;
+			margin: 0;	
+		}
+		p{
+			font-size: 14px;
+			line-height: 21px;
+			margin: 6px 0 0 20px;
+			color: #606266;
+			text-align: justify;
+		}
 	}
 }
 /*
@@ -259,84 +308,86 @@
 *底部公共footer
 *@common
 */
-.area-body{
-	.foot-title{
-		margin:125px auto 70px auto;
-	}
-	
-	.home-cell-title-bottom{
-		text-align: center;
-	}
-	.area-tabs{
-		margin-bottom:45px;
-		.area-tabs-item{
-			.btn;
-			color: #333333;
-			font-size: 22px;
-			margin:0 4px 10px 4px;
-			/* width: 101px; */
-			height: 34px;
-			border-radius: 34px;;
-			line-height: 34px;
-			float: left;
-			padding: 0 10px;
-			&:hover{
+.foot-box{
+	background: url(../img/footerBG.png) repeat-y center center/cover;
+	.area-body{
+		.foot-title{
+			margin:125px auto 70px auto;
+		}
+		
+		.home-cell-title-bottom{
+			text-align: center;
+		}
+		.area-tabs{
+			margin-bottom:45px;
+			.area-tabs-item{
+				.hk-btn;
+				color: #333333;
+				font-size: 22px;
+				margin:0 4px 10px 4px;
+				/* width: 101px; */
+				height: 34px;
+				border-radius: 34px;;
+				line-height: 34px;
+				float: left;
+				padding: 0 10px;
+				&:hover{
+					background: @footer-area-hover-background-color;
+					color: @footer-area-hover-color;
+				}
+			}
+			.area-tabs-item.selected{
 				background: @footer-area-hover-background-color;
 				color: @footer-area-hover-color;
 			}
 		}
-		.area-tabs-item.selected{
-			background: @footer-area-hover-background-color;
-			color: @footer-area-hover-color;
-		}
-	}
-	.area-detail-body{
-		.area-line{
-			margin-left: 40px;
-			border-left: 2px solid #45dbac;
-			padding-left: 24px;
-			&:last-of-type{
-				border-left:none;
-				padding-left: 26px;
-			}
-			.area-name{
-				float: left;
-				position: relative;
-				&::after{
-					position: absolute;
-					content: '';
-					display: block;
-					visibility: visible;
-					width: 12px;
-					height: 12px;
-					background: #45dbac;
-					left: -31px;
-					top: 6px;
-					border-radius: 50%;
-					
+		.area-detail-body{
+			.area-line{
+				margin-left: 40px;
+				border-left: 2px solid #45dbac;
+				padding-left: 24px;
+				&:last-of-type{
+					border-left:none;
+					padding-left: 26px;
 				}
+				.area-name{
+					float: left;
+					position: relative;
+					&::after{
+						position: absolute;
+						content: '';
+						display: block;
+						visibility: visible;
+						width: 12px;
+						height: 12px;
+						background: #45dbac;
+						left: -31px;
+						top: 6px;
+						border-radius: 50%;
+						
+					}
+				}
+				.area-detail{
+					float: left;
+				}
+				
+				div{
+					margin-top: -10px;
+					margin-bottom: 30px;
+				}
+				
 			}
-			.area-detail{
-				float: left;
-			}
-			
-			div{
-				margin-top: -10px;
-				margin-bottom: 30px;
-			}
-			
 		}
 	}
 }
-/*寒假训练营
-* @url:detail/detail-winter-vacation
+/*
+*detail页面公共二级导航
+*@common
 */
-.detail-winter-vacation{
-	.detail-header{
-		background: yellowgreen;
-		height: 198px;
-		overflow: hidden;
-	}
+.detail-header{
+	background: url(../img/secNav.jpg) no-repeat center center/cover;
+	height: 198px;
+	overflow: hidden;
 	.detail-logo{
 		margin-top: 69px;
 		float: left;
@@ -344,60 +395,169 @@
 	.detail-jump{
 		float: right;
 		margin-top: 69px;
-		margin-right: 200px;
+		// margin-right: 200px;
+		.detail-jump-item{
+			height: 59px;
+			line-height: 59px;
+			padding: 0 15px;
+			color: #3a3d4b;
+			font-size: 14px;
+		}
+		.detail-jump-item.selected{
+			font-size: 16px;
+			color: #222328;
+			font-weight: bold;
+		}
 	}
-	.detail-jump-item{
-		height: 59px;
-		line-height: 59px;
-		padding: 0 15px;
-		color: #3a3d4b;
-		font-size: 14px;
+}
+/*考研课程
+* @url:kaoyankecheng
+*/
+.kaoyankecheng{
+	.banner-slider-div{
+		background: #EEEEEE;
+		overflow: hidden;
+		
+		img{
+			width: 100%;
+		}
 	}
-	.detail-jump-item.selected{
-		font-size: 16px;
-		color: #222328;
-		font-weight: bold;
+	.kaoyankecheng-sub{
+		padding: 0;
+		width: 272px;
+		border-radius: 20px;
+		overflow: hidden;
+		background: white;
+		.kaoyankecheng-sub-title{
+			height: 50px;
+			width:100%;
+			background-image: linear-gradient(to right, #ef4c4f,#f66aa9);
+			font-size: 18px;
+			text-align: center;
+			line-height: 50px;
+			font-weight: bold;
+		}
+		.kaoyankecheng-sub-body{
+			margin: 9px 16px;
+			border-bottom:1px solid #f9f9f9;
+			color:black;
+			&:nth-of-type(1){
+				margin-top: 55px;
+			}
+			.kaoyankecheng-sub-icon{
+				color: #dedede;
+			}
+			.kaoyankecheng-sub-name{
+				color: #050505;
+				margin:0 10px
+			}
+			input{
+				width: 145px;
+				outline: none;
+			}
+		}
+		.kaoyankecheng-btn{
+			width: 144px;
+			height: 36px;
+			border-radius: 36px;;
+			line-height: 36px;
+			text-align: center;
+			margin: 9px auto;
+			.hk-btn;
+		}
+		.kaoyankecheng-btn-yuyue{
+			color: white;
+			background: #ef4c4f;
+			
+		}
+		.kaoyankecheng-btn-ask{
+			border: 1px solid #d5d5d5;
+			color: #393939;
+		}
 	}
+}
+
+/*寒假训练营
+* @url:detail/detail-winter-vacation
+*/
+.detail-winter-vacation{
+
 	.detail-banner{
+		overflow: hidden;
 		width: 100%;
-		height: 800px;
+		min-height: 600px;
 		background: #e0e0e0;
+		position: relative;
 	}
 	.detail-banner>img{
 		position: absolute;
 		// width: 100%;
+		left: 50%;
+		top: 0;
+		transform: translateX(-50%);
 	}
-	.detail-bannerBody{
+	.detail-body1{
 		position: relative;
-		/* height: 100%; */
-	}
-	.detail-banner-title{
-		position: absolute;
-		top:24px;
-		left:50%;
-		transform: translateX(-50%);
-		width: 400px;
-		height: 230px;
-		/* background: #34CE57; */
-	}
-	.detail-form-body{
-		width: 1164px;
-		height: 360px;
-		background: white;
-		position: absolute;
-		top: 575px;
-		left:50%;
-		transform: translateX(-50%);
-		border-radius: 20px;;
-		
-	}
-	.detail-form-title{
-		width: 472px;
-		height: 137px;
-		/* background: palevioletred; */
-	}
-	.detail-form-body>div{
-		margin:20px auto;
+		.detail-form-body{
+			width: 1164px;
+			height: 360px;
+			background: white;
+			position: absolute;
+			top: -64px;
+			left:50%;
+			transform: translateX(-50%);
+			border-radius: 20px;;
+			div{
+				margin:20px auto;
+			}
+			.detail-form-title{
+				width: 472px;
+				height: 137px;
+				/* background: palevioletred; */
+			}
+			.detail-form{
+				overflow: hidden;
+				@height:60px;
+				div{
+					float: left;
+					margin-left: 36px;
+					padding-bottom: 40px;
+					h2{
+						font-size: 20px;
+						color: #8c8f94;
+						margin-left: 36px;
+					}
+					input{
+						border-radius: @height;
+						height: @height;
+						width: 100%;
+						border:2px solid #8c8f94;
+						font-size: 30px;
+						text-indent: 24px;
+					}
+				}
+				.form-name{
+					margin-left: 83px;
+					width: 288px;
+				}
+				.form-phone{
+					width: 430px;
+					input{
+						
+					}
+				}
+				.hk-btn{
+					.hk-btn;
+					width: 204px;
+					margin-top: 51px;
+					height: @height;
+					line-height: @height;
+					border-radius: @height;
+					background: #f42267;
+					color: white;
+				}
+			}
+		}
 	}
 	.detail-body1>img{
 		width: 100%;
@@ -552,7 +712,7 @@
 		font-size: 36px;
 	}
 	.hot-item-ask{
-		.btn;
+		.hk-btn;
 		color:@detail-winter-vacation-hover-color ;
 		background-color:@detail-winter-vacation-hover-background-color ;
 		width: 160px;
@@ -627,7 +787,7 @@
 			margin: 0 auto;
 		}
 		.full-year-yueyue-btn{
-			.btn;
+			.hk-btn;
 			width: 212px;
 			height: 46px;
 			line-height: 46px;
@@ -639,26 +799,101 @@
 		}
 		
 	}
+	.kecheng{
+		overflow: hidden;
+		.kecheng-title{
+			width: 273px;
+			height: 165px;
+			margin: 100px auto;
+		}
+		.kejian-item{
+			margin-bottom: 70px;
+			height: 350px;
+			overflow: hidden;
+			div{
+				float: left;
+			}
+			.img-box{
+				width: 618px;
+				height: 100%;
+				background: greenyellow;
+			}
+			.word{
+				position: relative;
+				width: calc(~"100% - 618px");
+				// background: #F1B0B7;
+				height: 100%;
+				padding-left: 47px;;
+				h1{
+					color: #3f3f3f;
+					font-size: 43px;
+				}
+				@font-size:26px;
+				@font-color:#767676;
+				h2{
+					font-size:@font-size;
+					color:@font-color;
+					margin-bottm: 12px;
+				}
+				ul{
+					padding: 0;
+					list-style:inherit;
+					li{
+						height: 30px;
+						line-height: 30px;
+						font-size:@font-size;
+						color:@font-color;
+						span{
+							font-size: 20px;
+							color: #fd1849;
+						}
+						.price{
+							font-weight: bold;
+							font-size: 30px;
+							
+						}
+					}
+				}
+				.hk-btn{
+					position: absolute;
+					right: 21px;
+					bottom: 0;
+					.hk-btn;
+					width: 210px;
+					height: 64px;
+					line-height:64px;
+					border-radius: 64px;
+					font-size: 26px;
+					color:white;
+					background: @detail-full-year-hover-background-color;
+				}
+			}
+		}
+		.kecheng-footer{
+			margin: 0 auto 126px auto;
+			width: 1177px;
+			height: 83px;
+		}
+	}
 	.full-year-form{
+		padding-bottom: 240px;
+		overflow: hidden;
 		.form-title{
 			width: 748px;
 			height: 164px;
 			margin: 270px auto 77px auto;
 		}
 		.form-body{
+			
 			width: 1164px;
 			height: 190px;
 			margin: 0 auto;
 			border-radius: 20px;
 			overflow: hidden;
+			@height:56px;
 			div{
 				margin-right: 37px;
 				float: left;;
-			}
-			.form-name{
-				width: 286px;
-				margin-top: 45px;
-				margin-left:87px;
 				h2{
 					font-size: 20px;
 					color: #8c8f94;
@@ -666,19 +901,359 @@
 				}
 				input{
 					border:1px solid #ebebec;
-					border-radius: 56px;
-					height: 56px;
-					line-height: 56px;
+					border-radius: @height;
+					height: @height;
+					line-height: @height;
 					font-size: 30px;
 					text-indent: 34px;
 					width: 100%;
 				}
 			}
-			.form-phone:extend(.detail-full-year .full-year-form .form-body .form-name) {}
+			.form-name{
+				width: 286px;
+				margin-top: 45px;
+				margin-left:87px;
+				
+			}
+			.form-phone:extend(.detail-full-year .full-year-form .form-body .form-name) {
+				margin-left:0;
+				width: 432px;
+				input{
+					
+				}
+			}
+			.hk-btn{
+				.hk-btn;
+				width: 202px;
+				background: #48b4fd;
+				height: @height;
+				line-height: @height;
+				border-radius: @height;
+				margin-top: 79px;
+				color: white;
+			}
 			
 		}
 		
 	}
 	
 }
+/*复试训练营
+* @url:detail/detail-reexamination
+*/
+.detail-reexamination{
+	img{
+		width: 100%;
+	}
+	.banner{
+		max-height: 600px;
+		overflow: hidden;
+		
+	}
+	.serve{
+		background: url(../img/detail-reexamination-bg1.png) no-repeat center center/cover;
+		overflow: hidden;
+		.title1{
+			width: 715px;
+			height: 93px;
+			margin: 100px auto;
+		}
+		.serve-body{
+			overflow: hidden;
+			.serve-item+.serve-item{
+				margin-left: 144px;;
+			}
+			.serve-item{
+				float: left;
+				width: 190px;
+				// background: #48B4FD;
+				h1{
+					text-align: center;
+					font-size: 20px;
+					color: #333333;
+					margin-top: 43px;
+				}
+				.bg{
+					overflow: hidden;
+					border-radius: 114px;
+					width: 114px;
+					height: 114px;
+					background: #efefef;
+					margin: 0 auto;
+					transition: all 0.3s;
+					.icon{
+						margin: 30px auto;
+						width: 42px;
+						height: 52px;
+						background: url(../img/detail-reexamination-serve-2.png) no-repeat center center /contain;
+					}
+				}
+				&:hover{
+					.bg{
+						background: #24a7ff;
+					}
+				}
+			}
+			.serve-item1{
+				.bg{
+					.icon{
+						background: url(../img/detail-reexamination-serve-7.png) no-repeat center center /contain;
+					}
+				}
+				&:hover{
+					.icon{
+						background: url(../img/detail-reexamination-serve-8.png) no-repeat center center /contain;
+					}
+				}
+			}
+			.serve-item2{
+				.bg{
+					.icon{
+						background: url(../img/detail-reexamination-serve-4.png) no-repeat center center /contain;
+					}
+				}
+				&:hover{
+					.icon{
+						background: url(../img/detail-reexamination-serve-3.png) no-repeat center center /contain;
+					}
+				}
+			}
+			.serve-item3{
+				.bg{
+					.icon{
+						background: url(../img/detail-reexamination-serve-6.png) no-repeat center center /contain;
+					}
+				}
+				&:hover{
+					.icon{
+						background: url(../img/detail-reexamination-serve-5.png) no-repeat center center /contain;
+					}
+				}
+			}
+			.serve-item4{
+				.bg{
+					.icon{
+						background: url(../img/detail-reexamination-serve-2.png) no-repeat center center /contain;
+					}
+				}
+				&:hover{
+					.icon{
+						background: url(../img/detail-reexamination-serve-1.png) no-repeat center center /contain;
+					}
+				}
+			}
+		}
+	}
+	.dingzhi{
+		background: white;
+		overflow: hidden;
+		img{
+			margin-top: 140px;
+			
+		}
+	}
+	.beizhan{
+	}
+}
+/*高端彩虹卡
+* @url:detail/detail-rainbow-card
+*/
+.detail-rainbow-card{
+	img{
+		width: 100%;
+	}
+	.rainbow-table{
+		background: white;
+		h1{
+			width: 292px;
+			height: 45px;
+			margin: 0 auto;
+		}
+		.rainbow-tabs{
+			width: 768px;
+			margin: 30px auto 70px auto;
+			display: flex;
+			justify-content: space-between;
+			.tabs-item{
+				.hk-btn;
+				color: #545454;
+				font-size: 20px;
+				padding: 10px 30px;
+				cursor: pointer;
+				transition: all 0.3s;
+				&:hover{
+					background: #fd1849;
+					color:white;
+				}
+				&.selected{
+					color: white;
+					background: #fd1849;
+				}
+			}
+			
+		}
+		.rainbow-img{
+			padding-bottom: 158px;
+		}
+	}
+}
 
+.information{
+	.center{
+		
+		.width-1200-center{
+			position: relative;
+			.center-body{
+				background: white;
+				width: 910px;
+				padding: 20px;
+				min-height: 1478px;
+				position: relative;
+				.title{
+					position: relative;
+					text-align: left;
+					font-size: 22px;
+					color: #4d4d4d;
+					padding-top: 14px;
+					letter-spacing: 2px;
+					padding-bottom: 20px;
+					&::after{
+						position: absolute;
+						display: block;
+						content: "";
+						background: #66a8fc;
+						left: 0;
+						top: 0;
+						width: 100px;
+						height: 4px;
+					}
+				}
+				.list{
+					
+					.list-item{
+						margin-top: 28px;
+						overflow: hidden;
+						height: 160px;
+						display: block;
+						border-bottom: 1px solid #d0d0d0;
+						.img{
+							float: left;
+							width: 256px;
+							height: 140px;
+							background: gainsboro;;
+						}
+						.word{
+							height: 140px;
+							position: relative;
+							padding-left: 30px;
+							float: left;
+							width: calc(~"100% - 256px");
+							h1{
+								text-align: left;
+								font-size: 18px;
+								padding-bottom: 18px;
+								color: #2e2e2e;
+								font-weight: bold;
+							}
+							h3{
+								text-align: left;
+								font-size: 14px;
+								color: #4d4d4d;
+								.word-two-line;
+							}
+							p{
+								position: absolute;
+								right: 0;
+								bottom: 0;
+								color: #343434;
+								margin-bottom: 0;
+								i{
+									margin-left: 16px;
+									color: #d2d2d2;
+								}
+							}
+						}
+					}
+				}
+				.information-page-body{
+					position: absolute;
+					bottom:40px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 100%;
+				}
+			}
+			.right{
+				@margin-top:17px;
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 270px;
+				.right-top{
+					height: 184px;
+					background: white;
+				}
+				.hot-recommend{
+					margin-top: @margin-top;
+					padding: 14px;
+					background: white;
+					h1{
+						font-size: 16px;
+						color: #4d4d4d;
+						border-bottom: 1px solid #d0d0d0;
+						text-align: left;
+						padding-bottom: 10px;
+						position: relative;
+						margin-bottom: 13px;
+						&::after{
+							position: absolute;
+							content: "";
+							display: block;
+							width: 66px;
+							height: 2px;
+							background: #45dbac;
+							left: 0;
+							bottom: -1px;
+						}
+					}
+					.list{
+						a{
+							font-size: 14px;
+							color: #4d4d4d;
+							position: relative;
+							display: block;
+							text-align: left;
+							padding-left: 14px;
+							margin-bottom: 10px;
+							&:after{
+								position: absolute;
+								content: "";
+								display: block;
+								width: 10px;
+								height: 10px;
+								background: #ff6600;
+								left: 0;
+								bottom: 6px;
+								border-radius: 10px;
+							}
+						}
+					}
+				}
+				.hot-communication:extend(.information .center .width-1200-center .right .hot-recommend all){
+					a{
+						span{
+							color: #45dbac;
+							&:hover{
+								text-decoration: underline;
+							}
+						}
+					}
+					div{
+						margin-bottom: 10px;
+					}
+				}
+			}
+		}
+		
+	}
+}

@@ -2,33 +2,34 @@
 
 </style>
 
-<section class="section-map width-1200-center home-cell clear area-body">
-    <h3 class=" home-cell-title-bottom foot-title">
-		<img src="<?=$file_url?>/static/img/footer-title.png" data-img_name="footer-title.png" class="" alt="footer-title.png" title="footer-title.png"/>
-	</h3>
-    <!-- <div class="home-cell-content maps-content">
-        <p class="maps-p"><a class="maps-a" href="https://www.amap.com/place/B02DB05PEH" target="_blank" title="">湖南总部地址：湖南长沙天心区中南林业科技大学国际楼</a></p>
-        <p class="maps-p"><a class="maps-a" href="https://www.amap.com/place/B02DB05PEH" target="_blank" title="">长沙林科大校区：长沙天心区中南林业科技大学德润楼负一楼</a></p>
-    </div> -->
-	<div class="maps-content area-tabs clearfix">
-		<!-- <div class="area-tabs-item selected" data-url="1">湖南总部</div> -->
-		
-	</div>
-	<div class="maps-content area-detail-body">
-		<!-- <div class="area-line clearfix">
-			<div class="area-name">林科大分销：</div>
-			<div class="area-detail">中南林业科技大学东门橙子酒店3楼 <br>中南林业科技大学东门橙子酒店3楼</div>
-		</div>
-		<div class="area-line clearfix">
-			<div class="area-name">林科大分销：</div>
-			<div class="area-detail">中南林业科技大学东门橙子酒店3楼</div>
-		</div> -->
-	
-	</div>
-</section>
+
 
 
 <footer class="foot-box clear">
+	<section class="section-map width-1200-center home-cell clear area-body">
+	    <h3 class=" home-cell-title-bottom foot-title">
+			<img src="<?=$file_url?>/static/img/footer-title.png" data-img_name="footer-title.png" class="" alt="footer-title.png" title="footer-title.png"/>
+		</h3>
+	    <!-- <div class="home-cell-content maps-content">
+	        <p class="maps-p"><a class="maps-a" href="https://www.amap.com/place/B02DB05PEH" target="_blank" title="">湖南总部地址：湖南长沙天心区中南林业科技大学国际楼</a></p>
+	        <p class="maps-p"><a class="maps-a" href="https://www.amap.com/place/B02DB05PEH" target="_blank" title="">长沙林科大校区：长沙天心区中南林业科技大学德润楼负一楼</a></p>
+	    </div> -->
+		<div class="maps-content area-tabs clearfix">
+			<!-- <div class="area-tabs-item selected" data-url="1">湖南总部</div> -->
+			
+		</div>
+		<div class="maps-content area-detail-body">
+			<!-- <div class="area-line clearfix">
+				<div class="area-name">林科大分销：</div>
+				<div class="area-detail">中南林业科技大学东门橙子酒店3楼 <br>中南林业科技大学东门橙子酒店3楼</div>
+			</div>
+			<div class="area-line clearfix">
+				<div class="area-name">林科大分销：</div>
+				<div class="area-detail">中南林业科技大学东门橙子酒店3楼</div>
+			</div> -->
+		
+		</div>
+	</section>
     <div class="width-1200-center border-top-CBC9C7">
         <div class="padding-lr-15">
 
@@ -54,10 +55,17 @@
     <div class="loading-hidden-bg"></div>
     <div class="loading-icon"></div>
 </div>
-<ul id="alert">
+<ul id="hk-alert">
 	<!-- <li class="alert-error"><i class="fa fa-exclamation-circle alert-icon"></i>对不起，请求失败</li>
 	<li class="alert-default"><i class="fa fa-info-circle alert-icon"></i>对不起，请求失败</li>
 	<li class="alert-success"><i class="fa fa-sign-language alert-icon"></i>对不起，请求失败</li> -->
+</ul>
+
+<ul id="hk-notification">
+	<!-- <li class="notification-item">
+		<h1><i class="fa fa-info-circle alert-icon"></i>标题</h1>
+		<p>xxxxxx标题标题标题标题标题标题标题标题标题xxxxxx</p>
+	</li> -->
 </ul>
 
 

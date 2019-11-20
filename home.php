@@ -26,11 +26,11 @@ include $page_path.'/common/nav.php';
 <section class="view-section clear" id="view-main">
 
     <div class="banner-div select-none">
-        <div class="banner-slider-div">
+        <div class="banner-slider-div home-banner">
 			<div class="swiper-container">
 			  <div class="swiper-wrapper homeBanner-swiper-wrapper">
 			    <div class="swiper-slide">Slide 1</div>
-			    <div class="swiper-slide"></div>
+			    <div class="swiper-slide"><a href="" target="_blank" title="文都banner"></a></div>
 			  </div>
 			  <!-- Add Pagination -->
 			  <div class="swiper-pagination"></div>
@@ -295,7 +295,7 @@ include $page_path.'/common/nav.php';
                         <div class="clear"></div>
                     </div>
                     <ul class="wendu-news-ul ul-style">
-                        <li class="wendu-news-li"><span class="wendu-news-span">[考研资讯]</span>新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题</li>
+                        <li class="wendu-news-li"><a href="" target="_blank" title="文都资讯"><span class="wendu-news-span">[考研资讯]</span>新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题</a></li>
                         <li class="wendu-news-li"><span class="wendu-news-span">[考研资讯]</span>新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题</li>
                         <li class="wendu-news-li"><span class="wendu-news-span">[考研资讯]</span>新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题</li>
                         <li class="wendu-news-li"><span class="wendu-news-span">[考研资讯]</span>新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题</li>
@@ -306,10 +306,10 @@ include $page_path.'/common/nav.php';
                 <div class="other-news-box">
                     <div class="other-news-title select-none">考研相关知识点梳理</div>
                     <ul class="wendu-news-ul-other ul-style">
-                        <li class="wendu-news-li"><span class="wendu-news-span">考研英语|</span>新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题</li>
+                       <!-- <li class="wendu-news-li"><a href="" target="_blank" title="文都资讯"><span class="wendu-news-span">考研英语|</span>新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题</a></li>
                         <li class="wendu-news-li"><span class="wendu-news-span">考研政治|</span>新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题</li>
                         <li class="wendu-news-li"><span class="wendu-news-span">考研数学|</span>新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题</li>
-                        <li class="wendu-news-li"><span class="wendu-news-span">考研硕士|</span>新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题</li>
+                        <li class="wendu-news-li"><span class="wendu-news-span">考研硕士|</span>新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题</li> -->
                     </ul>
                 </div>
             </div>
@@ -408,7 +408,7 @@ include $page_path.'/common/nav.php';
 			changeDomFn:function(content){
 				$('.homeBanner-swiper-wrapper').html('');
 				$.isArray(content)&&content.forEach((item,index)=>{
-					let html = `<div class="swiper-slide"><img src="${item}" alt=""></div>`
+					let html = `<div class="swiper-slide"><a href="${item.jump}" target="_blank" title="文都banner"><img src="${item.img}" alt=""></a></div>`
 					$('.homeBanner-swiper-wrapper').append(html)
 				})
 				bannerSwiperInit()
@@ -447,6 +447,106 @@ include $page_path.'/common/nav.php';
 			},	
 			dealWithEmptyDom:function(){
 				$('.teacher-content').html('')
+			}
+		}
+		all.dealWithDomAfterAjax(params)
+	}
+	// getNewsList()
+	getNewsType()
+	//获取新闻分类
+	function getNewsType(){
+		let params = {
+			method:'POST',
+			url: "<?=$api_url?>"+"app/list_news_class" ,
+			text:{
+				textWarn:'请求成功，新闻分类暂无数据',
+				textError:'新闻分类请求失败',
+			},
+			data :{
+				app_class:'web',
+				user_token:'token'
+				
+			},
+			changeDomFn:function(content){
+				console.log(content)
+				$.isArray(content)&&content.forEach((item,index)=>{
+					if(item.class_name=='其他分类'){
+						getNewsList(item.news_class_id,item.class_name)
+					}else if(item.class_name=='手机数码'){
+						getNewsOther(item.news_class_id,item.class_name)
+					}else if(item.class_name=='厨房美食'){
+						getNewsOther(item.news_class_id,item.class_name)
+					}else if(item.class_name=='电脑办公'){
+						getNewsOther(item.news_class_id,item.class_name)
+					}else if(item.class_name=='星座算命'){
+						getNewsOther(item.news_class_id,item.class_name)
+					}
+				})
+			},
+			dealWithEmptyDom:function(){
+				
+			}
+		}
+		all.dealWithDomAfterAjax(params)
+	}
+	//获取新闻列表
+	function getNewsList(id,class_name){
+		let params = {
+			method:'POST',
+			url: "<?=$api_url?>"+"app/list_news" ,
+			text:{
+				textWarn:'请求成功，'+class_name+'暂无数据',
+				textError:class_name+'请求失败',
+			},
+			data :{
+				app_class:'web',
+				user_token:'token',
+				news_class_id:id
+			},
+			changeDomFn:function(content){
+				console.log(content)
+				$('.wendu-news-ul').html('')
+				$.isArray(content)&&content.forEach((item,index)=>{
+					if(index<6){
+						let html = `<li class="wendu-news-li"><a href="" target="_blank" title="文都资讯">
+						<span class="wendu-news-span">[${class_name}]</span>${item.title}</a></li>`
+						 $('.wendu-news-ul').append(html)
+					}
+					
+				})
+			},
+			dealWithEmptyDom:function(){
+				
+			}
+		}
+		all.dealWithDomAfterAjax(params)
+	}
+	//获取单条新闻
+	function getNewsOther(id,class_name){
+		let params = {
+			method:'POST',
+			url: "<?=$api_url?>"+"app/list_news" ,
+			text:{
+				textWarn:'请求成功，'+class_name+'暂无数据',
+				textError:class_name+'请求失败',
+			},
+			data :{
+				app_class:'web',
+				user_token:'token',
+				news_class_id:id
+			},
+			changeDomFn:function(content){
+				console.log(content)
+				// $('.wendu-news-ul-other').html('')
+				if($.isArray(content)&&content.length!=0){
+					let html = `<li class="wendu-news-li">
+					<a href="" target="_blank" title="文都资讯">
+					<span class="wendu-news-span">${class_name}|</span>${content[0].title}</a></li>`
+					$('.wendu-news-ul-other').append(html)
+				}
+			},
+			dealWithEmptyDom:function(){
+				
 			}
 		}
 		all.dealWithDomAfterAjax(params)

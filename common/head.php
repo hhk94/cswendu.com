@@ -42,6 +42,8 @@ include $head_path.'/common/common.php';
     <link href="<?=$file_url?>static/pl/swiper/swiper.min.css?<?=$head_time?>" rel="stylesheet">
 	<link href="<?=$file_url?>static/css/detail.less?<?=$head_time?>" rel="stylesheet/less">
 	<script src="<?=$file_url?>static/js/less.js"></script>
+	<script src="<?=$file_url?>static/js/jquery.sPage.js"></script>
+	<link href="<?=$file_url?>static/css/jquery.sPage.css" rel="stylesheet">
     <script>
         /*
         * 移动兼容到安卓5.1和iOS10.3，PC兼容到IE11
