@@ -222,12 +222,21 @@ include $page_path.'/common/secNav.php';
 					data:{
 						app_class:'web',
 						user_token:'token',
-						resource:'寒假集训营报名'
+						resource:'pc_baoming',
+						user_info:name+"#@寒假集训营报名",
+						user_phone:phone
 					},//ajax请求参数
-					url:"<?=$api_url?>"+"app/check_user_phone",//ajax请求url
+					url:"<?=$api_url?>"+"app/user_phone_order",//ajax请求url
 					successfn:function(res){//ajax请求成功的回调
-					console_log(res)
 						let jsonRes = $.parseJSON( res );
+						if(jsonRes.state==1){
+							let params={
+								type:'success',
+								text:'恭喜您，报名成功',
+								timeout:2000
+							}
+							all.message(params)	
+						}
 						// all.log(jsonRes)
 					
 					}
@@ -235,7 +244,6 @@ include $page_path.'/common/secNav.php';
 				all.sendAjax(params)
 			}
 		}
-		
 	})
 </script>
 <!--结束-页面js-->

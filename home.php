@@ -23,7 +23,7 @@ include $page_path.'/common/nav.php';
 </style>
 
 <!--开始-模块页内容-->
-<section class="view-section clear" id="view-main">
+<section class="view-section clear wendu-home" id="view-main">
 
     <div class="banner-div select-none">
         <div class="banner-slider-div home-banner">
@@ -154,7 +154,7 @@ include $page_path.'/common/nav.php';
         <div class="course-div">
             <!---->
             <div class="course-item">
-                <img src="" class="hot-course-cover" data-img_name="" title="" alt="课程海报" />
+                <img src="<?=$file_url?>static/img/special-cover1.png" class="hot-course-cover" data-img_name="special-cover1.png" title="课程海报" alt="课程海报" />
                 <div class="clear"></div>
                 <div class="hot-course-content">
                     <div class="hot-course-name">2021考研秋季集训营</div>
@@ -165,7 +165,7 @@ include $page_path.'/common/nav.php';
             </div>
             <!---->
             <div class="course-item">
-                <img src="" class="hot-course-cover" data-img_name="" title="" alt="课程海报" />
+                <img src="<?=$file_url?>static/img/special-cover2.png" class="hot-course-cover" data-img_name="special-cover2.png" title="课程海报" alt="课程海报" />
                 <div class="clear"></div>
                 <div class="hot-course-content">
                     <div class="hot-course-name">2021考研专业课</div>
@@ -176,7 +176,7 @@ include $page_path.'/common/nav.php';
             </div>
             <!---->
             <div class="course-item">
-                <img src="" class="hot-course-cover" data-img_name="" title="" alt="课程海报" />
+                <img src="<?=$file_url?>static/img/special-cover3.png" class="hot-course-cover" data-img_name="special-cover3.png" title="课程海报" alt="课程海报" />
                 <div class="clear"></div>
                 <div class="hot-course-content">
                     <div class="hot-course-name">高端定制，彩虹卡系列</div>
@@ -187,7 +187,7 @@ include $page_path.'/common/nav.php';
             </div>
             <!---->
             <div class="course-item">
-                <img src="" class="hot-course-cover" data-img_name="" title="" alt="课程海报" />
+                <img src="<?=$file_url?>static/img/special-cover4.png" class="hot-course-cover" data-img_name="special-cover4.png" title="课程海报" alt="课程海报" />
                 <div class="clear"></div>
                 <div class="hot-course-content">
                     <div class="hot-course-name">2021考研集训营</div>
@@ -198,7 +198,7 @@ include $page_path.'/common/nav.php';
             </div>
 
             <!---->
-            <div class="course-item">
+           <!-- <div class="course-item">
                 <img src="" class="hot-course-cover" data-img_name="" title="" alt="课程海报" />
                 <div class="clear"></div>
                 <div class="hot-course-content">
@@ -209,7 +209,7 @@ include $page_path.'/common/nav.php';
                 </div>
             </div>
             <!---->
-            <div class="course-item">
+           <!-- <div class="course-item">
                 <img src="" class="hot-course-cover" data-img_name="" title="" alt="课程海报" />
                 <div class="clear"></div>
                 <div class="hot-course-content">
@@ -218,7 +218,7 @@ include $page_path.'/common/nav.php';
                     <div class="hot-course-info">不达目标即刻退费</div>
                     <span class="hot-course-ask click">免费咨询</span>
                 </div>
-            </div>
+            </div> -->
 
             <div class="clear"></div>
         </div>
@@ -236,6 +236,7 @@ include $page_path.'/common/nav.php';
                 <div class="teacher-item-name">张三</div>
                 <div class="teacher-item-txt">很伟大很伟大很伟大很伟大很伟大很伟大很伟大很伟大很伟大很伟大很伟大很伟大很伟大很伟大很伟大很伟大很伟大，很伟大很伟大。</div>
             </div>
+			
 
             <!---->
             <div class="teacher-item-div">
@@ -315,7 +316,12 @@ include $page_path.'/common/nav.php';
             </div>
             <div class="wendu-right">
                 <div class="wendu-3-content">
-                    <div class="wendu-3-title select-none"><img class="earphone-icon" src="./static/img/earphone.png" data-img_name="earphone" alt="icon"/>试听课程</div>
+                    <div class="wendu-3-title select-none"><img class="earphone-icon" src="./static/img/earphone.png" data-img_name="earphone" alt="icon"/>考研资料下载</div>
+					<div class="download-body">
+						<a href="" target="_blank" title="热门下载"><i class="fa fa-file-pdf-o"></i> <span class="WordJustOneLine">2013392931文都考研词汇表</span><i class="fa fa-upload"></i></a>
+						<a href=""><i class="fa fa-file-pdf-o"></i> <span class="WordJustOneLine">2013392931文都考研词汇表</span><i class="fa fa-upload"></i></a>
+						<a href=""><i class="fa fa-file-pdf-o"></i> <span class="WordJustOneLine">2013392931文都考研词汇表</span><i class="fa fa-upload"></i></a>
+					</div>
                 </div>
             </div>
 
@@ -387,6 +393,7 @@ include $page_path.'/common/nav.php';
         console_log("开始渲染数据");
 		getTeacherHot()
 		getBanner()
+		getHotFile()
     }
 	function bannerSwiperInit(){
 		var swiper = new Swiper('.swiper-container', {
@@ -436,12 +443,12 @@ include $page_path.'/common/nav.php';
 			changeDomFn:function(content){
 				$('.teacher-content').html('')
 				$.isArray(content)&&content.forEach((item,index)=>{
-					let html = `<div class="teacher-item-div">
+					let html = `<a href="<?=$file_url?>detail/detail-teacher.php?route=nav&nav=kaoyanInformation&teacher_id=${item.teacher_id}" target="_blank" title="热门名师" class="teacher-item-div">
 						<img src="${item.teacher_cover}" class="teacher-item-cover" data-img_name="" title="${item.teacher_name}" alt="名师封面照"/>
 						<div class="clear"></div>
 						<div class="teacher-item-name">${item.teacher_name}</div>
 						<div class="teacher-item-txt">${item.teacher_grading}</div>
-					</div>`
+					</a>`
 					 $('.teacher-content').append(html)
 				})
 			},	
@@ -465,7 +472,6 @@ include $page_path.'/common/nav.php';
 			data :{
 				app_class:'web',
 				user_token:'token'
-				
 			},
 			changeDomFn:function(content){
 				console.log(content)
@@ -551,47 +557,96 @@ include $page_path.'/common/nav.php';
 		}
 		all.dealWithDomAfterAjax(params)
 	}
-	
-	//获取热门老师
-	// function createTeacherHot(content){
-	// 	$('.teacher-content').html('')
-	// 	$.isArray(content)&&content.forEach((item,index)=>{
-	// 		let html = `<div class="teacher-item-div">
- //                <img src="${item.teacher_cover}" class="teacher-item-cover" data-img_name="" title="${item.teacher_name}" alt="名师封面照"/>
- //                <div class="clear"></div>
- //                <div class="teacher-item-name">${item.teacher_name}</div>
- //                <div class="teacher-item-txt">${item.teacher_grading}</div>
- //            </div>`
-	// 		 $('.teacher-content').append(html)
-	// 	})
-	// }
-	// function getTeacherHot(){
-	// 	let data = {
-	// 		app_class:'web',
-	// 		user_token:'token',
-	// 		teacher_id:'hot'
-	// 	}
-	// 	let params = {
-	// 		method:'POST',
-	// 		data:data,
-	// 		url:"<?=$api_url?>" + 'app/teacher_hot',
-	// 		successfn:function(res){
-	// 			let jsonRes = $.parseJSON( res );
-	// 			all.log(jsonRes)
-	// 			if(jsonRes.state==0){
-	// 				let params={
-	// 					type:'success',
-	// 					text:'名师列表请求成功，暂无数据',
-	// 					timeout:2000
-	// 				}
-	// 				all.message(params)
-	// 			}else if(jsonRes.state==1){
-	// 				createTeacherHot(jsonRes.content)
-	// 			}
-	// 		}
-	// 	}
-	// 	all.sendAjax(params)
-	// }
+	//获取热门下载
+	function getHotFile(){
+		let params = {
+			method:'POST',
+			url: "<?=$api_url?>"+"app/hot_file" ,
+			text:{
+				textWarn:'请求成功，暂无数据',
+				textError:'请求失败',
+			},
+			data :{
+				app_class:'web',
+				user_token:'token'
+			},
+			changeDomFn:function(content){
+				console.log(content)
+				$('.download-body').html('')
+				$.isArray(content)&&content.forEach((item,index)=>{
+					if(index<6){
+						let html = `<a href="<?=$file_url?>detail/detail-download.php?route=nav&nav=home&file_upload_id=${content[0].file_upload_id}" target="_blank" title="热门下载">
+						<i class="fa fa-file-pdf-o"></i> 
+						<span class="WordJustOneLine">${item.file_name}</span>
+						<i class="fa fa-upload"></i></a>`
+						$('.download-body').append(html)
+					}
+					
+				})
+				
+				
+			},
+			dealWithEmptyDom:function(){
+				
+			}
+		}
+		all.dealWithDomAfterAjax(params)
+	}
+	//首页报名
+	$('.baoming-btn').click(function(){
+		let name = $('.baoming-name').val()
+		let phone = $('.baoming-tel').val()
+		if(name==''||name==null||name.length==0){
+			all.notification({
+				type:'error',
+				text:'请填写您的姓名',
+				timeout:3000
+			})
+			return false;
+		}else if(phone==''||phone==null||phone.length==0){
+			all.notification({
+				type:'error',
+				text:'请填写您的联系电话',
+				timeout:3000
+			})
+			return false;
+		}else{
+			let isPhone = /^1(3|4|5|6|7|8|9)\d{9}$/;
+			if(!isPhone.test(phone)){
+				all.notification({
+					type:'error',
+					text:'对不起，您的手机号格式不正确，请检查',
+					timeout:3000
+				})
+				return false;
+			}else{
+				// ajax
+				let params = {
+					method:'POST',//ajax请求方法
+					data:{
+						app_class:'web',
+						user_token:'token',
+						resource:'pc_baoming',
+						user_info:name+"#@首页报名",
+						user_phone:phone
+					},//ajax请求参数
+					url:"<?=$api_url?>"+"app/user_phone_order",//ajax请求url
+					successfn:function(res){//ajax请求成功的回调
+						let jsonRes = $.parseJSON( res );
+						if(jsonRes.state==1){
+							let params={
+								type:'success',
+								text:'恭喜您，报名成功',
+								timeout:2000
+							}
+							all.message(params)	
+						}
+					}
+				}
+				all.sendAjax(params)
+			}
+		}
+	})
 	
 
 </script>

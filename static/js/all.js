@@ -56,16 +56,18 @@ function page_style_init() {
     let that_nav = getThisUrlParam("", "nav");
     $(".nav-item-title").removeClass("nav-item-title-active");
     $(".detail-jump-item").removeClass("selected");
-	
     if (that_nav === ""){
         make_notice([{"msg": "网址参数错误(nav=?)"}], 60000);
     }else {
 		
         $(".nav-"+that_nav).addClass("nav-item-title-active");
         $(".nav-"+that_nav).addClass("selected");
+       
     }
+	$('img').on('mousedown',function (e) {
+	    e.preventDefault()
+	})
 
-	
 }
 
 

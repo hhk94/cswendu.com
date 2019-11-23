@@ -167,6 +167,63 @@ include $page_path.'/common/secNav.php';
         console_log("开始渲染数据");
 
     }
+	
+	$('.hk-btn').click(function(){
+		let name = $('.form-name input').val()
+		let phone = $('.form-phone input').val()
+		if(name==''||name==null||name.length==0){
+			all.notification({
+				type:'error',
+				text:'请填写您的姓名',
+				timeout:3000
+			})
+			return false;
+		}else if(phone==''||phone==null||phone.length==0){
+			all.notification({
+				type:'error',
+				text:'请填写您的联系电话',
+				timeout:3000
+			})
+			return false;
+		}else{
+			let isPhone = /^1(3|4|5|6|7|8|9)\d{9}$/;
+			if(!isPhone.test(phone)){
+				all.notification({
+					type:'error',
+					text:'对不起，您的手机号格式不正确，请检查',
+					timeout:3000
+				})
+				return false;
+			}else{
+				// ajax
+				let params = {
+					method:'POST',//ajax请求方法
+					data:{
+						app_class:'web',
+						user_token:'token',
+						resource:'pc_baoming',
+						user_info:name+"#@全年集训营报名",
+						user_phone:phone
+					},//ajax请求参数
+					url:"<?=$api_url?>"+"app/user_phone_order",//ajax请求url
+					successfn:function(res){//ajax请求成功的回调
+						let jsonRes = $.parseJSON( res );
+						if(jsonRes.state==1){
+							let params={
+								type:'success',
+								text:'恭喜您，报名成功',
+								timeout:2000
+							}
+							all.message(params)	
+						}
+						// all.log(jsonRes)
+					
+					}
+				}
+				all.sendAjax(params)
+			}
+		}
+	})
 </script>
 <!--结束-页面js-->
 

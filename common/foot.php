@@ -42,8 +42,14 @@
                 <a class="friend-url-a" href="#" target="_blank" title="河南文都考研官网">河南文都</a>
 
             </div>
-
+			
             <div class="site-info-div">
+				<div class="footer-tabs">
+					<a class="" href="#" target="_blank" title="关于我们">关于我们</a>
+					<a class="" href="#" target="_blank" title="联系方式">联系方式</a>
+					<a class="" href="#" target="_blank" title="招聘人才">招聘人才</a>
+					<a class="" href="#" target="_blank" title="支付方式">支付方式</a>
+				</div>
                 <p>地址：<a class="click-a" href="https://www.amap.com/place/B02DB05PEH" title="地址：湖南省长沙市天心区中南林业科技大学国际楼" target="_blank">湖南省长沙市天心区中南林业科技大学国际楼</a>&nbsp;&nbsp;&nbsp;&nbsp;邮编：100048</p>
                 <p>湘ICP备xxxxxx号-x&nbsp;&nbsp;&nbsp;&nbsp;湘公安备xxxxxxxxxxx号&nbsp;&nbsp;&nbsp;&nbsp;版权©长沙道信教育科技有限公司&nbsp;&nbsp;&nbsp;&nbsp;2007/01-<?=date('Y/m')?></p>
             </div>

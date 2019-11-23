@@ -6,14 +6,14 @@
 			</a>
 			<div class="detail-jump">
 				<a href="<?=$file_url?>/home.php?route=nav&nav=home" class="detail-jump-item nav-home">首页</a>
-				<a href="<?=$file_url?>kaoyankecheng.php?route=nav&nav=kaoyankecheng" title="考研课程" target="_self" class="detail-jump-item nav-kaoyankecheng">考研课程</a>
-				<a href="#" class="detail-jump-item">2021考研</a>
+				<a href="<?=$file_url?>curriculum.php?route=nav&nav=curriculum" title="考研课程" target="_self" class="detail-jump-item nav-curriculum">考研课程</a>
+				<a href="<?=$file_url?>detail/detail-rainbow-card.php?route=nav&nav=2021" class="detail-jump-item  nav-2021">2021考研</a>
 				<a href="<?=$file_url?>detail/detail-winter-vacation.php?route=nav&nav=training" title="集训营班" target="_self" class="detail-jump-item nav-training">集训营班</a>
-				<a href="#" class="detail-jump-item">二战考研</a>
+				<a href="<?=$file_url?>detail/detail-study-again.php?route=nav&nav=study-again" class="detail-jump-item nav-study-again">二战考研</a>
 				
-				<a href="#" class="detail-jump-item">在职考研</a>
-				<a href="#" class="detail-jump-item">考研师资</a>
-				<a href="#" class="detail-jump-item">考研资讯</a>
+				<a href="<?=$file_url?>detail/detail-onwork.php?route=nav&nav=workindex" title="在职考研" target="_self" class="detail-jump-item nav-workindex">在职考研</a>
+				<a href="<?=$file_url?>teacher.php?route=nav&nav=teacher" title="文都师资" target="_self" class="detail-jump-item nav-teacher">文都师资</a>
+				<a href="<?=$file_url?>information.php?route=nav&nav=information" title="考研资讯" target="_self" class="detail-jump-item nav-information">考研资讯</a>
 				<a href="#" class="detail-jump-item">考研社区</a>
 			</div>
 		</div>
