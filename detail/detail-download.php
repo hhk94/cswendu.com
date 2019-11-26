@@ -50,7 +50,7 @@ include $page_path.'/common/nav.php';
 				<div class="info-img">
 					<img src="<?=$file_url?>/static/img/detail-download-pdf.png" data-img_name="detail-download-pdf.png" alt="文件下载">
 				</div>
-				<div class="info-name">xxxxxxxxxxxxx</div>
+				<div class="info-name WordJustOneLine">xxxxxxxxxxxxx</div>
 			</div>
 			<a href="" target="_blank" class="true-download-btn"><i class="fa fa-upload"></i>立即下载</a>
 		</div>
@@ -70,13 +70,19 @@ include $page_path.'/common/nav.php';
         console_log("开始渲染数据");
 		let file_upload_id = all.getQueryString("file_upload_id")
 		getThisFile(file_upload_id)
+		geAllArea()
     }
 	$(".form-body").click(function(event){
 	    event.stopPropagation();//阻止事件冒泡即可
 	})
-	
+	$(".true-download").click(function(event){
+	    event.stopPropagation();//阻止事件冒泡即可
+	})
 	$('.download-btn').click(function(){
 		$('.black-bg').slideDown(300)
+		$('.input-name input').val('')
+		$('.input-phone input').val('')
+		$('.input-check input').val('')
 	})
 	$('.black-bg').click(function(){
 		$('.black-bg').slideUp(300)
@@ -84,7 +90,7 @@ include $page_path.'/common/nav.php';
 	$('.black-bg-close').click(function(){
 		$('.black-bg').slideUp(300)
 	})
-	//发送验证码
+	//发送验证码 
 	$('.check-btn').click(function(){
 		let name = $('.input-name input').val()
 		let phone = $('.input-phone input').val()
@@ -117,7 +123,7 @@ include $page_path.'/common/nav.php';
 					method:'POST',//ajax请求方法
 					data:{
 						app_class:'web',
-						user_token:'token',
+						user_token:window.token,
 						resource:'pc_download',
 						user_info:name+"#@资料下载页面",
 						user_phone:phone
@@ -137,8 +143,7 @@ include $page_path.'/common/nav.php';
 								text:'短信验证码已下发至您的手机，请注意查收',
 								timeout:3000
 							})
-							let file_upload_id = all.getQueryString("file_upload_id")
-							createDownload(file_upload_id)
+							
 						}
 					}
 				}
@@ -146,8 +151,7 @@ include $page_path.'/common/nav.php';
 			}
 		}
 	})
-	
-	//报名获取下载链接
+	//提交报名
 	$('.download-up-btn').click(function(){
 		let name = $('.input-name input').val()
 		let phone = $('.input-phone input').val()
@@ -181,26 +185,22 @@ include $page_path.'/common/nav.php';
 					method:'POST',//ajax请求方法
 					data:{
 						app_class:'web',
-						user_token:'token',
+						user_token:window.token,
 						resource:'pc_download',
-						user_info:name+"#@资料下载页面",
-						user_phone:phone
+						name:name+"#@资料下载页面",
+						phone:phone,
+						code:check
+						
 					},//ajax请求参数
-					url:"<?=$api_url?>"+"app/check_user_phone",//ajax请求url
+					url:"<?=$api_url?>"+"app/check_code_sms",//ajax请求url
 					successfn:function(res){//ajax请求成功的回调
 						let jsonRes = $.parseJSON( res );
+						console.log(jsonRes)
 						if(jsonRes.state==1){
-							// let params={
-							// 	type:'success',
-							// 	text:'恭喜您，报名成功',
-							// 	timeout:2000
-							// }
-							// all.message(params)	
-							all.notification({
-								type:'success',
-								text:'短信验证码已下发至您的手机，请注意查收',
-								timeout:3000
-							})
+						//制作下载链接
+						let file_upload_id = all.getQueryString("file_upload_id")
+						createDownload(file_upload_id)
+						showDownload()
 						}
 					}
 				}
@@ -208,13 +208,17 @@ include $page_path.'/common/nav.php';
 			}
 		}
 	})
+	function showDownload(){
+		$('.form-body').css('display','none')
+		$('.true-download').slideDown()
+	}
 	//制作下载href
 	function createDownload(file_upload_id){
 		let params = {
 			method:'POST',//ajax请求方法
 			data:{
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				file_upload_id:file_upload_id
 			},//ajax请求参数
 			url:"<?=$api_url?>"+"app/make_file_href",//ajax请求url
@@ -228,6 +232,7 @@ include $page_path.'/common/nav.php';
 		}
 		all.sendAjax(params)
 	}
+	//读取这个文件的数据
 	function getThisFile(file_upload_id){
 		let params = {
 			method:'POST',
@@ -238,14 +243,14 @@ include $page_path.'/common/nav.php';
 			},
 			data :{
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				file_upload_id:file_upload_id
 			},
 			changeDomFn:function(content){
 				console.log(content)
 				if(content.length!=0){
 					// console.log('aas')
-					let html = content.file_name
+					let html = content.file_zh_name
 					$('.info-name').text(html)
 				}
 				

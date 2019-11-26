@@ -70,7 +70,7 @@ include $page_path.'/common/secNav.php';
     // 页面数据入口，如有动态数据渲染，请以此函数为调用作为开始
     function page_data_init(){
         console_log("开始渲染数据");
-
+		geAllArea()
     }
 </script>
 <!--结束-页面js-->

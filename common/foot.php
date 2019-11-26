@@ -84,13 +84,14 @@
 
 <script src="<?=$file_url?>static/js/page.js?<?=$head_time?>"></script>
 <script>
+	// console.log(foot_token)
 	$('.area-tabs').on("click",".area-tabs-item",function(){
 		$(this).addClass('selected').siblings().removeClass('selected')
 		// console.log()
 		let campus_class_id =  all.getItemDataAttr($(this),'campus_class_id')
 		let data={
 			app_class:'web',
-			user_token:'token',
+			user_token:window.token,
 			campus_id: "that",
 			campus_class_id: campus_class_id,
 			areaname:$(this).text()
@@ -108,7 +109,7 @@
 			},
 			data : {
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				campus_class_id:'all'
 			},
 			changeDomFn:function(content){
@@ -118,7 +119,7 @@
 						var html = `<div class="area-tabs-item selected" data-campus_class_id="${item.campus_class_id}">${item.campus_class_name}</div>`
 						let data={
 							app_class:'web',
-							user_token:'token',
+							user_token:window.token,
 							campus_id: "that",
 							campus_class_id: item.campus_class_id,
 							areaname:item.campus_class_name
@@ -167,101 +168,8 @@
 		}
 		all.dealWithDomAfterAjax(params)
 	}
-	geAllArea()
-	// function geAllArea(){
-	// 	let data = {
-	// 		app_class:'web',
-	// 		user_token:'token',
-	// 		campus_class_id:'all'
-	// 	}
-	// 	let params = {
-	// 		method:'POST',
-	// 		data:data,
-	// 		url:"<?=$api_url?>" + 'app/list_campus_class',
-	// 		successfn:function(res){
-	// 			let jsonRes = $.parseJSON( res );
-	// 			all.log(jsonRes)
-	// 			if(jsonRes.state==0){
-	// 				let params={
-	// 					type:'success',
-	// 					text:'请求成功，暂无数据',
-	// 					timeout:2000
-	// 				}
-	// 				all.message(params)
-	// 			}else if(jsonRes.state==1){
-	// 				createArea(jsonRes.content)
-	// 			}
-	// 		}
-	// 	}
-	// 	all.sendAjax(params)
-	// }
 	
-	// function createArea(content){
-	// 	console_log(content)
-	// 	$.isArray(content)&&content.reverse().forEach((item,index)=>{
-	// 		if(index==0){
-	// 			var html = `<div class="area-tabs-item selected" data-campus_class_id="${item.campus_class_id}">${item.campus_class_name}</div>`
-	// 			let data={
-	// 				app_class:'web',
-	// 				user_token:'token',
-	// 				campus_id: "that",
-	// 				campus_class_id: item.campus_class_id,
-	// 				areaname:item.campus_class_name
-	// 			}
-	// 			getAreaScool(data)
-	// 		}else{
-	// 			var html = `<div class="area-tabs-item" data-campus_class_id="${item.campus_class_id}">${item.campus_class_name}</div>`
-	// 		}
-	// 		 $('.area-tabs').append(html)
-	// 	})
-	// }
-	
-	
-	// function createAreaScool(content){
-	// 	// all.log(content)
-	// 	$('.area-detail-body').html('')
-		
-	// 	$.isArray(content)&&content.forEach((item,index)=>{
-	// 		let html = `<div class="area-line clearfix">
-	// 		<div class="area-name">${item.campus_name}：</div>
-	// 		<div class="area-detail">${item.campus_address}</div>
-	// 	</div>`
-	// 		 $('.area-detail-body').append(html)
-	// 	})
-	// }
-	// function getAreaScool(data){
-	// 	let params = {
-	// 		method:'POST',
-	// 		data:data,
-	// 		url: "<?=$api_url?>"+"app/list_campus" ,
-	// 		successfn:function(res){
-	// 			console_log(res)
-	// 			let jsonRes = $.parseJSON( res );
-	// 			if(jsonRes.state==0){
-	// 				let params={
-	// 					type:'success',
-	// 					text:'请求成功，该地区暂无分校',
-	// 					// timeout:2000
-	// 				}
-	// 				all.message(params)
-	// 				createAreaScool(jsonRes.content)
-	// 			}else if(jsonRes.state==1){
-	// 				let params={
-	// 					type:'success',
-	// 					text:'您现在查看的是'+data.areaname,
-	// 					timeout:2000
-	// 				}
-	// 				all.message(params)
-	// 				createAreaScool(jsonRes.content)
-	// 			}
-	// 		},
-	// 		errorfn:function(e){
-	// 			console_log(e)
-	// 		}
-	// 	}
-	// 	all.sendAjax(params)
-	// }
-	
+
 	
 	
 	

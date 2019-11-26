@@ -24,7 +24,7 @@ include $page_path.'/common/nav.php';
         <div class="width-1200-center">
             <div class="dir-div roll-txt">
                 <i class="fa fa-home"></i>
-                <a class="dir-a" href="<?=$file_url?>kaoyanInformation.php?route=nav&nav=kaoyanInformation" target="_self" title="文都资讯">文都资讯</a>
+                <a class="dir-a" href="<?=$file_url?>information.php?route=nav&nav=kaoyanInformation" target="_self" title="文都资讯">文都资讯</a>
                 <i class="fa fa-angle-right dir-fa"></i>
                 <a class="dir-a" href="#" target="_self" title="考研详情">详情</a>
             </div>
@@ -53,7 +53,7 @@ include $page_path.'/common/nav.php';
 				</div>
 				<div class="hot-recommend">
 					<h1>热点推荐</h1>
-					<div class="list">
+					<div class="list hot-news-list">
 						<a href="./kaoyankecheng.php?route=nav&nav=kaoyankecheng" target="_blank" title="考研资讯" class="WordJustOneLine">研招统考预报名5个问题请关注</a>
 						<a href="./kaoyankecheng.php?route=nav&nav=kaoyankecheng" target="_blank" title="考研资讯" class="WordJustOneLine">研招统考预报名5个问题请关注</a>
 						<a href="./kaoyankecheng.php?route=nav&nav=kaoyankecheng" target="_blank" title="考研资讯" class="WordJustOneLine">研招统考预报名5个问题请关注</a>
@@ -63,10 +63,10 @@ include $page_path.'/common/nav.php';
 				<div class="hot-communication">
 					<h1>研友交流</h1>
 					<div class="list">
-						<a title="考研资讯" class="WordJustOneLine information-num">2021考研交流分享群:<span>962488888</span></a>
-						<a title="考研资讯" class="WordJustOneLine information-num">湖南大学2021考研群:<span>962488888</span></a>
-						<a title="考研资讯" class="WordJustOneLine information-num">中南2021考研交流群:<span>950788888</span></a>
-						<a title="考研资讯" class="WordJustOneLine information-num">在职考研交流群	:<span>950788888</span></a>
+						<a title="考研资讯" class="WordJustOneLine information-num">湖南考研学习群 :<span>603615074</span></a>
+						<a title="考研资讯" class="WordJustOneLine information-num">农大21考研学员群:<span>897178755</span></a>
+						<a title="考研资讯" class="WordJustOneLine information-num">2021林科大官方群:<span> 1023382939</span></a>
+						<a title="考研资讯" class="WordJustOneLine information-num">湖师大2021考研群:<span>1005752702</span></a>
 						<div><img src="<?=$file_url?>/static/img/information-code.png" data-img_name="information-code.png" alt="文都考研二维码" title="文都考研二维码"/></div>
 					</div>
 				</div>
@@ -91,6 +91,8 @@ include $page_path.'/common/nav.php';
         console_log("开始渲染数据");
 		let news_info_id = all.getQueryString("news_info_id")
 		getDetailNews(news_info_id)
+		geAllArea()
+		getHot()
     }
 	
 	//获取分页数据
@@ -100,7 +102,7 @@ include $page_path.'/common/nav.php';
 			url: "<?=$api_url?>"+"app/that_news" ,
 			data :{
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				news_info_id:news_info_id  
 			},
 			successfn:function(res){
@@ -124,8 +126,39 @@ include $page_path.'/common/nav.php';
 		$('.time').text(html)
 		$('.author').text(author)
 	}
-	
-	
+	//获取热门新闻
+		function getHot(){
+			let params = {
+				method:'POST',
+				url: "<?=$api_url?>"+"app/hot_news" ,
+				data :{
+					app_class:'web',
+					user_token:window.token,
+					page:1,
+					limit:6
+				},
+				successfn:function(res){
+					let jsonRes = $.parseJSON( res );
+					console_log(jsonRes)
+					let content = jsonRes.content
+					getHotAddHot(content)
+					
+				}
+				
+			}
+			all.sendAjax(params)
+		}
+		//热门新闻插入
+		function getHotAddHot(content){
+			$('.hot-news-list').html('')
+			$.isArray(content)&&content.forEach((item,index)=>{
+				let html = `<a href="<?=$file_url?>detail/detail-information.php?route=nav&nav=kaoyanInformation&
+				news_info_id=${item.news_info_id}" target="_blank" title="考研资讯" class="WordJustOneLine">${item.title}</a>`
+				
+				 $('.hot-news-list').append(html)
+				
+			})
+		}
 
 </script>
 <!--结束-页面js-->

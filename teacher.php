@@ -36,10 +36,8 @@ include $page_path.'/common/nav.php';
 				<h1 class="title" id="title">
 					文都师资
 					<div class="teacher-type">
-						<div class="teacher-type-item selected">英语名师</div>
-						<div class="teacher-type-item">政治名师</div>
-						<div class="teacher-type-item">数学名师</div>
-						<div class="teacher-type-item">专业课名师</div>
+						<div class="teacher-type-item selected " data-teacher_class_id=''>全部</div>
+						
 					</div>
 				</h1>
 				
@@ -82,14 +80,18 @@ include $page_path.'/common/nav.php';
 
 </script>
 <script>
+	var [limit,pages] = [12,1];
+	var teacher_class_id = ''
+	
+	// console.log(window.token)
     // 页面数据入口，如有动态数据渲染，请以此函数为调用作为开始
     function page_data_init(){
         console_log("开始渲染数据");
+		// console.log(window.token)
+		
 		getClass()
-		let [limit,pages] = [12,1];
-		// getBanner()
-		let teacher_class_id = ''
-		getNewsList(limit,pages,teacher_class_id)
+		getTeacherList(limit,pages,teacher_class_id)
+		geAllArea()
     }
 	function getClass(){
 		let params = {
@@ -97,7 +99,7 @@ include $page_path.'/common/nav.php';
 			url: "<?=$api_url?>"+"app/list_teacher_class" ,
 			data :{
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				teacher_class_id:'all',
 				
 			},
@@ -105,21 +107,39 @@ include $page_path.'/common/nav.php';
 				let jsonRes = $.parseJSON( res );
 				console_log(jsonRes)
 				let content = jsonRes.content
-				// itemAdd(content)
+				teacherType(content)
 				
 			}
 			
 		}
 		all.sendAjax(params)
 	}
+	//新增分类
+	function teacherType(content){
+		
+		$.isArray(content)&&content.forEach((item,index)=>{
+			// console.log(times)
+			let html = `<div class="teacher-type-item" data-teacher_class_id='${item.teacher_class_id}'>${item.class_name}</div>`
+			$('.teacher-type').append(html)
+		})
+	}
+
+
+	$(document).on('click', '.teacher-type-item', function() {
+		
+		teacher_class_id = all.getItemDataAttr($(this),'teacher_class_id')
+		$(this).addClass('selected').siblings().removeClass('selected')
+		// console.log(teacher_class_id )
+		getTeacherList(limit,pages,teacher_class_id)
+	});
 	//获取分页数据
-	function getNewsList(limit,pages,teacher_class_id){
+	function getTeacherList(limit,pages,teacher_class_id){
 		let params = {
 			method:'POST',
 			url: "<?=$api_url?>"+"app/teacher_list" ,
 			data :{
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				teacher_class_id:teacher_class_id,
 				teacher_id:'all',
 				page:pages,
@@ -137,7 +157,7 @@ include $page_path.'/common/nav.php';
 				    backFun:function(page){
 				        //点击分页按钮回调函数，返回当前页码
 						
-				        getNewsList(limit,page);
+				        getTeacherList(limit,page,teacher_class_id);
 				    }
 				});
 			}
@@ -150,7 +170,7 @@ include $page_path.'/common/nav.php';
 		$('.teacher-list').html('')
 		$.isArray(content)&&content.forEach((item,index)=>{
 			// console.log(times)
-			let html = `<a href="<?=$file_url?>detail/detail-teacher.php?route=nav&nav=kaoyanInformation&teacher_id=${item.teacher_id}" class="teacher-list-item" target="_blank" title="文都名师">
+			let html = `<a href="<?=$file_url?>detail/detail-teacher.php?route=nav&nav=teacher&teacher_id=${item.teacher_id}" class="teacher-list-item" target="_blank" title="文都名师">
 					<div class="teacher-img">
 						<img src="${item.teacher_cover}" alt="">
 					</div>
@@ -168,7 +188,8 @@ include $page_path.'/common/nav.php';
 
 
 <?php
-include $page_path.'/common/must.php';
 include $page_path.'/common/foot.php';
+include $page_path.'/common/must.php';
+
 ?>
 

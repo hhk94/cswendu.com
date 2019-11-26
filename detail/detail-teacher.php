@@ -44,33 +44,33 @@ include $page_path.'/common/nav.php';
 			<div class="center-body">
 				<h1 class="title" >推荐课程</h1>
 				<div class="lecture-body">
-					<a href="" class="lecture-item">
-						<div class="lecture-img">
-							<img src="<?=$file_url?>static/img/special-cover1.png" class="hot-course-cover" data-img_name="special-cover1.png" title="课程海报" alt="课程海报" />
-						</div>
-						<h1 class="lecture-name">2021考研秋季集训营</h1>
-						<h3 class="lecture-info">特色：百天集训，全程免费住宿</h3>
-					</a>
-					<a href="" class="lecture-item">
-						<div class="lecture-img">
-							<img src="<?=$file_url?>static/img/special-cover2.png" class="hot-course-cover" data-img_name="special-cover2.png" title="课程海报" alt="课程海报" />
-						</div>
-						<h1 class="lecture-name">2021考研专业课</h1>
-						<h3 class="lecture-info">特色：一对一辅导 面授直播可选</h3>
-					</a>
-					<a href="" class="lecture-item">
-						<div class="lecture-img">
-							<img src="<?=$file_url?>static/img/special-cover3.png" class="hot-course-cover" data-img_name="special-cover3.png" title="课程海报" alt="课程海报" />
-						</div>
-						<h1 class="lecture-name">高端定制 彩虹卡系列</h1>
-						<h3 class="lecture-info">特色：一对一辅导 面授直播可选</h3>
-					</a>
-					<a href="" class="lecture-item">
+					<a href="<?=$file_url?>detail/detail-full-year.php?route=nav&nav=training" class="lecture-item" target="_blank">
 						<div class="lecture-img">
 							<img src="<?=$file_url?>static/img/special-cover4.png" class="hot-course-cover" data-img_name="special-cover4.png" title="课程海报" alt="课程海报" />
 						</div>
-						<h1 class="lecture-name">2021考研集训营</h1>
-						<h3 class="lecture-info">特色：一对一辅导 面授直播可选</h3>
+						<h1 class="lecture-name">2021寒假集训营</h1>
+						<h3 class="lecture-info">特色：8天7晚，全程免费住宿</h3>
+					</a>
+					<a href="<?=$file_url?>detail/detail-reexamination.php?route=nav&nav=training" class="lecture-item" target="_blank">
+						<div class="lecture-img">
+							<img src="<?=$file_url?>static/img/detail-teacher-img2.jpg" class="hot-course-cover" data-img_name="detail-teacher-img2.jpg" title="课程海报" alt="课程海报" />
+						</div>
+						<h1 class="lecture-name">2021复试营</h1>
+						<h3 class="lecture-info">特色：备战复试，抢占调剂先机</h3>
+					</a>
+					<a href="<?=$file_url?>detail/detail-rainbow-card.php?route=nav&nav=2021" class="lecture-item" target="_blank">
+						<div class="lecture-img">
+							<img src="<?=$file_url?>static/img/special-cover3.png" class="hot-course-cover" data-img_name="special-cover3.png" title="课程海报" alt="课程海报" />
+						</div>
+						<h1 class="lecture-name">2021高端彩虹卡</h1>
+						<h3 class="lecture-info">特色：一对一专业课辅导，名校定向</h3>
+					</a>
+					<a href="<?=$file_url?>detail/detail-rainbow-card.php?route=nav&nav=2021" class="lecture-item" target="_blank">
+						<div class="lecture-img">
+							<img src="<?=$file_url?>static/img/detail-teacher-img1.jpg" class="hot-course-cover" data-img_name="sdetail-teacher-img1.jpg" title="课程海报" alt="课程海报" />
+						</div>
+						<h1 class="lecture-name">2021全年集训营</h1>
+						<h3 class="lecture-info">特色：全日制教学，全程督学辅导</h3>
 					</a>
 					
 				</div>
@@ -100,6 +100,7 @@ include $page_path.'/common/nav.php';
 		let teacher_id = all.getQueryString("teacher_id")
 		console_log(teacher_id)
 		getDetailTeacher(teacher_id)
+		geAllArea()
     }
 	//获取分页数据
 	function getDetailTeacher(teacher_id){
@@ -108,7 +109,7 @@ include $page_path.'/common/nav.php';
 			url: "<?=$api_url?>"+"app/teacher_that" ,
 			data :{
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				teacher_id:teacher_id
 			},
 			successfn:function(res){

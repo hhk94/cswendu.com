@@ -724,6 +724,7 @@
 			    padding-left: 10px;
 			    padding-right: 10px;
 			    position: relative;
+				padding-bottom: 30px;
 				.hot-course-name{
 				    height: 40px;
 				    line-height: 50px;
@@ -826,7 +827,7 @@
 		}
 	}
 	.wendu-news{
-	    width: calc(~"100% - 295px - 285px");
+	    width: calc(~"100% - 295px - 395px");
 	    min-height: 200px;
 	    float: left;
 	    padding: 0 30px;
@@ -850,7 +851,7 @@
 		    height: 40px;
 		    line-height: 40px;
 		    overflow: hidden;
-		    width: calc(~"489px - 59px");
+		    width: calc(~"489px - 180px");
 		    padding: 0 10px;
 		    border-top: 1px solid #E8E8E8;
 		    border-right: 1px solid #E8E8E8;
@@ -904,7 +905,7 @@
 	.wendu-right{
 	    float: right;
 	    border-left: 1px solid #CBC9C7;
-	    width: 285px;
+	    width: 395px;
 	    min-height: 230px;
 	    padding: 0 20px;
 	    /*background: #EEEEEE;*/
@@ -924,6 +925,7 @@
 			}
 			.download-body{
 				a{
+					margin: 5px 0;
 					font-size: 14px;
 					color: #a6a6a6;
 					display: flex;
@@ -955,6 +957,7 @@
 	    max-height: 655px;
 	    overflow: hidden;
 		.wendu-com-li{
+			position: relative;
 		    padding: 10px 0;
 		    border-bottom: 1px solid #E4E4E4;
 			&:last-child{
@@ -967,11 +970,23 @@
 			    float: left;
 			    background: #EEEEEE;
 			}
+			
 			.com-txt{
 			    float: left;
 			    width: calc(~"100% - 195px");
 			    height: 110px;
 			    position: relative;
+				.com-a{
+				    padding: 3px 15px;
+				    border-radius: 20px;
+				    font-size: 14px;
+				    color: white;
+				    background: #06D191;
+				    position: absolute;
+				    bottom: -3px;
+				    right: 15px;
+				    z-index: 100;
+				}
 				.com-title{
 				    height: 30px;
 				    line-height: 30px;
@@ -1002,17 +1017,7 @@
 					-webkit-line-clamp: 2;
 					-webkit-box-orient: vertical;
 				}
-				.com-a{
-				    padding: 3px 15px;
-				    border-radius: 20px;
-				    font-size: 14px;
-				    color: white;
-				    background: #06D191;
-				    position: absolute;
-				    bottom: -3px;
-				    right: 15px;
-				    z-index: 100;
-				}
+				
 				
 			}
 		}
@@ -1154,10 +1159,16 @@
 				font-weight: bold;
 				margin-bottom: 0;
 			}
+			p+p{
+				margin-top: 5px;
+			}
 			p{
 				font-size: 12px;
 				color: #747474;
 				line-height: 18px;
+				margin-top: 10px;
+				margin-bottom: 0;
+				
 				span{
 					margin-top: 3px;;
 					color: #ff0505;
@@ -1403,6 +1414,7 @@
 		width: 376px;
 		height: 100%;
 		background-color: #45DBAC;
+		overflow: hidden;
 	}
 	.detail-hot-item-word{
 		transition: all 0.3s;
@@ -2017,6 +2029,9 @@
 					}
 					div{
 						margin-bottom: 10px;
+						img{
+							width: 100%;
+						}
 					}
 				}
 			}
@@ -2055,6 +2070,20 @@
 			}
 		}
 		
+	}
+}
+/*考研社区详情页
+* @url:detail/detail-community
+*/
+.detail-community:extend(.detail-information all){
+	.detail-community-ask{
+		overflow: hidden;
+		margin-left: 45px;;
+		background: #f7f7f7;
+		border: 1px solid #ebebeb;
+		padding: 10px;
+		font-size: 14px;
+		color: #444444;
 	}
 }
 /*考研师资列表
@@ -2266,7 +2295,7 @@
 							font-size: 14px;
 							color:#6f6f6f;
 							text-align: left;
-							padding: 0 10px;
+							padding:4px 10px;
 						}
 						&:hover{
 							.lecture-name{
@@ -2396,12 +2425,17 @@
 	
 }
 
+/*二战考研详情页
+* @url:detail/detail-study-again
+*/
 .detail-study-again:extend(.detail-onwork all){
 	.last-form{
 		padding-top: 40px;;
 	}
 }
-
+/*zi资料下载详情
+* @url:detail/detail-download
+*/
 .detail-download{
 	img{
 			width: 100%;
@@ -2568,6 +2602,7 @@
 					text-decoration: underline;
 					margin-left: 30px;
 					margin-top: 44px;
+					width: 70%;
 				}
 			}
 			.true-download-btn{
@@ -2587,5 +2622,32 @@
 				}
 			}
 		}
+	}
+}
+
+/*考研社区详情
+* @url:detail/detail-community
+*/
+.detail-community-body{
+	.detail-community-answer-item{
+		.detail-community-answer{
+			margin-top: 10px;
+			margin-left: 20px;;
+			.anser-name{
+				font-size: 14px;
+				color: #444444;
+			}
+			.anser-time{
+				font-size: 12px;
+				color: #a1a1a1;
+			}
+		}
+		.anser-body{
+			padding: 20px;
+			word-wrap:break-word;
+			border-bottom: 1px solid #d3d3d3;
+			margin-bottom: 20px;;
+		}
+		
 	}
 }

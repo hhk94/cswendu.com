@@ -165,7 +165,7 @@ include $page_path.'/common/secNav.php';
     // 页面数据入口，如有动态数据渲染，请以此函数为调用作为开始
     function page_data_init(){
         console_log("开始渲染数据");
-
+		geAllArea()
     }
 	
 	$('.hk-btn').click(function(){
@@ -200,7 +200,7 @@ include $page_path.'/common/secNav.php';
 					method:'POST',//ajax请求方法
 					data:{
 						app_class:'web',
-						user_token:'token',
+						user_token:window.token,
 						resource:'pc_baoming',
 						user_info:name+"#@全年集训营报名",
 						user_phone:phone

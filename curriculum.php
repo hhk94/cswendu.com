@@ -31,17 +31,17 @@ include $page_path.'/common/nav.php';
 			<div class="kaoyankecheng-sub-body">
 				<i class="fa fa-file-text-o kaoyankecheng-sub-icon"></i>
 				<span class="kaoyankecheng-sub-name">科目</span>
-				<input class="noBorder" type="text">
+				<input class="noBorder input-kemu" type="text">
 			</div>
 			<div class="kaoyankecheng-sub-body">
 				<i class="fa fa-user-o kaoyankecheng-sub-icon"></i>
 				<span class="kaoyankecheng-sub-name">姓名</span>
-				<input class="noBorder" type="text">
+				<input class="noBorder input-name" type="text" >
 			</div>
 			<div class="kaoyankecheng-sub-body">
 				<i class="fa fa-mobile-phone kaoyankecheng-sub-icon"></i>
 				<span class="kaoyankecheng-sub-name">手机号</span>
-				<input class="noBorder" type="text">
+				<input class="noBorder input-phone" type="text">
 			</div>
 			<div class="kaoyankecheng-btn kaoyankecheng-btn-yuyue">立即预约</div>
 			<div class="kaoyankecheng-btn kaoyankecheng-btn-ask">微信在线咨询</div>
@@ -214,7 +214,7 @@ include $page_path.'/common/nav.php';
 					<div class="kaoyankecheng-course-item-vip-bottom">
 						<h1 class="WordJustOneLine jingping-word">VIP高端辅导</h1>
 						<div class="jingping-btn-parent">
-							<a class="jingping-btn" href="#" target="_self" title="查看详情">查看详情</a>
+							<a class="jingping-btn" href="#" target="_self" title="查看详情" >查看详情</a>
 							<div class="jingping-btn click">在线咨询</div>
 						</div>
 					</div>
@@ -242,6 +242,7 @@ include $page_path.'/common/nav.php';
     function page_data_init(){
         console_log("开始渲染数据");
 		getCourseType()
+		geAllArea()
     }
 	
 	//获取课程分类
@@ -250,7 +251,7 @@ include $page_path.'/common/nav.php';
 			method:'POST',//ajax请求方法
 			data:{
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				course_class_id:'all'
 			},//ajax请求参数
 			url: "<?=$api_url?>"+"app/list_course_class" ,//ajax请求url
@@ -285,7 +286,7 @@ include $page_path.'/common/nav.php';
 			},
 			data :{
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				course_id:'all',
 				course_class_id:course_class_id
 			},
@@ -294,11 +295,11 @@ include $page_path.'/common/nav.php';
 				$('.jixunying').html('')
 				$.isArray(content)&&content.forEach((item,index)=>{
 					let html = `<div class="kaoyankecheng-course-item noBorder">
-					<a href="" class="kaoyankecheng-course-item-vip-img"><img src="${item.course_cover}" alt=""></a>
+					<a href="${item.course_url}" target="_blank" class="kaoyankecheng-course-item-vip-img"><img src="${item.course_cover}" alt=""></a>
 					<div class="kaoyankecheng-course-item-vip-bottom">
 						<h1 class="WordJustOneLine">${item.course_name}</h1>
-						<p class="WordJustOneLine noMargin">${item.course_slogan}</p>
-						<p class="WordJustOneLine noMargin">${item.course_description}</p>
+						<p class="WordJustOneLine ">${item.course_slogan}</p>
+						<p class="WordJustOneLine ">${item.course_description}</p>
 						<div class="kaoyankecheng-course-item-vip-ask click">在线咨询</div>
 					</div>
 				</div>`
@@ -321,7 +322,7 @@ include $page_path.'/common/nav.php';
 			},
 			data :{
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				course_id:'all',
 				course_class_id:course_class_id
 			},
@@ -330,11 +331,11 @@ include $page_path.'/common/nav.php';
 				$('.rainbow').html('')
 				$.isArray(content)&&content.forEach((item,index)=>{
 					let html = `<div class="kaoyankecheng-course-item noBorder">
-					<a href="" class="kaoyankecheng-course-item-vip-img"><img src="${item.course_cover}" alt=""></a>
+					<a href="${item.course_url}" target="_blank" class="kaoyankecheng-course-item-vip-img"><img src="${item.course_cover}" alt=""></a>
 					<div class="kaoyankecheng-course-item-vip-bottom">
 						<h1 class="WordJustOneLine">${item.course_name}</h1>
-						<p class="WordJustOneLine noMargin">${item.course_slogan}</p>
-						<p class="WordJustOneLine noMargin">${item.course_description}</p>
+						<p class="WordJustOneLine ">${item.course_slogan}</p>
+						<p class="WordJustOneLine ">${item.course_description}</p>
 						<div class="kaoyankecheng-course-item-vip-ask click">在线咨询</div>
 					</div>
 				</div>`
@@ -357,7 +358,7 @@ include $page_path.'/common/nav.php';
 			},
 			data :{
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				course_id:'all',
 				course_class_id:course_class_id
 			},
@@ -366,11 +367,11 @@ include $page_path.'/common/nav.php';
 				$('.zhuanyeke').html('')
 				$.isArray(content)&&content.forEach((item,index)=>{
 					let html = `<div class="kaoyankecheng-course-item noBorder">
-					<div class="kaoyankecheng-course-item-vip-img jingping-img"><img src="${item.course_cover}" alt=""></div>
+					<a href="${item.course_url}" target="_blank" class="kaoyankecheng-course-item-vip-img jingping-img"><img src="${item.course_cover}" alt=""></a>
 					<div class="kaoyankecheng-course-item-vip-bottom">
 						<h1 class="WordJustOneLine jingping-word">${item.course_name}</h1>
 						<div class="jingping-btn-parent">
-							<a class="jingping-btn" href="#" target="_self" title="查看详情">查看详情</a>
+							<a class="jingping-btn" href="${item.course_url}" target="_blank" title="查看详情">查看详情</a>
 							<div class="jingping-btn click">在线咨询</div>
 						</div>
 					</div>
@@ -384,6 +385,62 @@ include $page_path.'/common/nav.php';
 		all.dealWithDomAfterAjax(params)
 	}
 	
+	//课程报名
+	$('.kaoyankecheng-btn-yuyue').click(function(){
+		let name = $('.input-name').val()
+		let phone = $('.input-phone').val()
+		let kemu = $('.input-kemu').val()
+		if(name==''||name==null||name.length==0){
+			all.notification({
+				type:'error',
+				text:'请填写您的姓名',
+				timeout:3000
+			})
+			return false;
+		}else if(phone==''||phone==null||phone.length==0){
+			all.notification({
+				type:'error',
+				text:'请填写您的联系电话',
+				timeout:3000
+			})
+			return false;
+		}else{
+			let isPhone = /^1(3|4|5|6|7|8|9)\d{9}$/;
+			if(!isPhone.test(phone)){
+				all.notification({
+					type:'error',
+					text:'对不起，您的手机号格式不正确，请检查',
+					timeout:3000
+				})
+				return false;
+			}else{
+				// ajax
+				let params = {
+					method:'POST',//ajax请求方法
+					data:{
+						app_class:'web',
+						user_token:window.token,
+						resource:'pc_baoming',
+						user_info:name+"#@"+kemu+"#@课程页面报名",
+						user_phone:phone
+					},//ajax请求参数
+					url:"<?=$api_url?>"+"app/user_phone_order",//ajax请求url
+					successfn:function(res){//ajax请求成功的回调
+						let jsonRes = $.parseJSON( res );
+						if(jsonRes.state==1){
+							let params={
+								type:'success',
+								text:'恭喜您，报名成功',
+								timeout:2000
+							}
+							all.message(params)	
+						}
+					}
+				}
+				all.sendAjax(params)
+			}
+		}
+	})
 </script>
 <!--结束-页面js-->
 

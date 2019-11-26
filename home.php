@@ -154,45 +154,56 @@ include $page_path.'/common/nav.php';
         <div class="course-div">
             <!---->
             <div class="course-item">
-                <img src="<?=$file_url?>static/img/special-cover1.png" class="hot-course-cover" data-img_name="special-cover1.png" title="课程海报" alt="课程海报" />
+				<a href="<?=$file_url?>detail/detail-winter-vacation.php?route=nav&nav=training" target="_blank">
+					<img src="<?=$file_url?>static/img/special-cover4.png" class="hot-course-cover" data-img_name="special-cover4.png" title="课程海报" alt="课程海报" />
+				</a>
                 <div class="clear"></div>
                 <div class="hot-course-content">
-                    <div class="hot-course-name">2021考研秋季集训营</div>
-                    <div class="hot-course-description">特色：白天训练，全程免费住宿</div>
-                    <div class="hot-course-info">开营时间：9/10-2/20</div>
+                    <div class="hot-course-name">2021寒假集训营</div>
+                    <div class="hot-course-description">特色：8天7晚，全程免费住宿</div>
+                    <div class="hot-course-info">开营时间：2021/15-2021/1/12</div>
                     <span class="hot-course-ask click">免费咨询</span>
                 </div>
             </div>
             <!---->
             <div class="course-item">
-                <img src="<?=$file_url?>static/img/special-cover2.png" class="hot-course-cover" data-img_name="special-cover2.png" title="课程海报" alt="课程海报" />
+				<a href="<?=$file_url?>detail/detail-reexamination.php?route=nav&nav=training" target="_blank">
+					<img src="<?=$file_url?>static/img/detail-teacher-img2.jpg" class="hot-course-cover" data-img_name="detail-teacher-img2.jpg" title="课程海报" alt="课程海报" />
+				</a>
+                
                 <div class="clear"></div>
                 <div class="hot-course-content">
-                    <div class="hot-course-name">2021考研专业课</div>
-                    <div class="hot-course-description">特色：一对一辅导，面授直播可选</div>
-                    <div class="hot-course-info">开营时间：9/10-2/20</div>
+                    <div class="hot-course-name">2021复试营</div>
+                    <div class="hot-course-description">特色：备战复试，抢占调剂先机</div>
+                    <div class="hot-course-info">开营时间：2021年2月-2021年4月</div>
                     <span class="hot-course-ask click">免费咨询</span>
                 </div>
             </div>
             <!---->
             <div class="course-item">
-                <img src="<?=$file_url?>static/img/special-cover3.png" class="hot-course-cover" data-img_name="special-cover3.png" title="课程海报" alt="课程海报" />
+				<a href="<?=$file_url?>detail/detail-rainbow-card.php?route=nav&nav=training" target="_blank">
+					<img src="<?=$file_url?>static/img/special-cover3.png" class="hot-course-cover" data-img_name="special-cover3.png" title="课程海报" alt="课程海报" />
+				</a>
+                
                 <div class="clear"></div>
                 <div class="hot-course-content">
-                    <div class="hot-course-name">高端定制，彩虹卡系列</div>
-                    <div class="hot-course-description">特色：白天训练，全程免费住宿</div>
-                    <div class="hot-course-info">不达目标即刻退费</div>
+                    <div class="hot-course-name">2021高端彩虹卡</div>
+                    <div class="hot-course-description">特色：一对一专业课辅导，名校定向</div>
+                    <div class="hot-course-info">开课时间：滚动开班，18大校区同步</div>
                     <span class="hot-course-ask click">免费咨询</span>
                 </div>
             </div>
             <!---->
             <div class="course-item">
-                <img src="<?=$file_url?>static/img/special-cover4.png" class="hot-course-cover" data-img_name="special-cover4.png" title="课程海报" alt="课程海报" />
+				<a href="<?=$file_url?>detail/detail-rainbow-card.php?route=nav&nav=training" target="_blank">
+					<img src="<?=$file_url?>static/img/detail-teacher-img1.jpg" class="hot-course-cover" data-img_name="detail-teacher-img1.jpg" title="课程海报" alt="课程海报" />
+				</a>
+                
                 <div class="clear"></div>
                 <div class="hot-course-content">
-                    <div class="hot-course-name">2021考研集训营</div>
-                    <div class="hot-course-description">特色：白天训练，全程免费住宿</div>
-                    <div class="hot-course-info">不达目标即刻退费</div>
+                    <div class="hot-course-name">2021全年集训营</div>
+                    <div class="hot-course-description">特色：全日制教学，全程督学辅导</div>
+                    <div class="hot-course-info">上课时间：2021年3月-2021年12月</div>
                     <span class="hot-course-ask click">免费咨询</span>
                 </div>
             </div>
@@ -290,11 +301,16 @@ include $page_path.'/common/nav.php';
             </div>
             <div class="wendu-news">
                 <div class="top-news-box">
-                    <div>
-                        <div class="news-title-ok select-none">今日头条<i class="fa fa-volume-up fa-left-padding"></i></div>
-                        <div class="news-title-show">2020年中国青年政治学院考研现场确认</div>
-                        <div class="clear"></div>
-                    </div>
+					
+						<div class="top-news-one">
+							<!-- <a href=""  target="_blank">
+								<div class="news-title-ok select-none">今日头条<i class="fa fa-volume-up fa-left-padding"></i></div>
+								<div class="news-title-show">2020年中国青年政治学院考研现场确认</div>
+								<div class="clear"></div>
+							</a> -->
+						</div>
+					
+                    
                     <ul class="wendu-news-ul ul-style">
                         <li class="wendu-news-li"><a href="" target="_blank" title="文都资讯"><span class="wendu-news-span">[考研资讯]</span>新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题</a></li>
                         <li class="wendu-news-li"><span class="wendu-news-span">[考研资讯]</span>新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题新闻标题标题</li>
@@ -394,6 +410,9 @@ include $page_path.'/common/nav.php';
 		getTeacherHot()
 		getBanner()
 		getHotFile()
+		geAllArea()
+		getNewsType()
+		getHotAsk()
     }
 	function bannerSwiperInit(){
 		var swiper = new Swiper('.swiper-container', {
@@ -412,6 +431,7 @@ include $page_path.'/common/nav.php';
 		let datas = {
 			url:"<?=$api_url?>" + 'app/get_array_cover_img',
 			key:'home_slider',
+			token:window.token,
 			changeDomFn:function(content){
 				$('.homeBanner-swiper-wrapper').html('');
 				$.isArray(content)&&content.forEach((item,index)=>{
@@ -437,7 +457,7 @@ include $page_path.'/common/nav.php';
 			},
 			data : {
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				teacher_id:'hot'
 			},
 			changeDomFn:function(content){
@@ -458,8 +478,7 @@ include $page_path.'/common/nav.php';
 		}
 		all.dealWithDomAfterAjax(params)
 	}
-	// getNewsList()
-	getNewsType()
+	
 	//获取新闻分类
 	function getNewsType(){
 		let params = {
@@ -471,21 +490,21 @@ include $page_path.'/common/nav.php';
 			},
 			data :{
 				app_class:'web',
-				user_token:'token'
+				user_token:window.token
 			},
 			changeDomFn:function(content){
 				console.log(content)
 				$.isArray(content)&&content.forEach((item,index)=>{
-					if(item.class_name=='其他分类'){
+					if(item.class_name=='考研资讯'){
 						getNewsList(item.news_class_id,item.class_name)
-					}else if(item.class_name=='手机数码'){
+					}else if(item.class_name=='考研英语'){
 						getNewsOther(item.news_class_id,item.class_name)
-					}else if(item.class_name=='厨房美食'){
+					}else if(item.class_name=='考研数学'){
 						getNewsOther(item.news_class_id,item.class_name)
-					}else if(item.class_name=='电脑办公'){
+					}else if(item.class_name=='考研政治'){
 						getNewsOther(item.news_class_id,item.class_name)
-					}else if(item.class_name=='星座算命'){
-						getNewsOther(item.news_class_id,item.class_name)
+					}else if(item.class_name=='头条'){
+						getTopNews(item.news_class_id,item.class_name)
 					}
 				})
 			},
@@ -506,7 +525,7 @@ include $page_path.'/common/nav.php';
 			},
 			data :{
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				news_class_id:id
 			},
 			changeDomFn:function(content){
@@ -538,7 +557,7 @@ include $page_path.'/common/nav.php';
 			},
 			data :{
 				app_class:'web',
-				user_token:'token',
+				user_token:window.token,
 				news_class_id:id
 			},
 			changeDomFn:function(content){
@@ -549,6 +568,40 @@ include $page_path.'/common/nav.php';
 					<a href="<?=$file_url?>detail/detail-information.php?route=nav&nav=kaoyanInformation&news_info_id=${content[0].news_info_id}" target="_blank" title="文都资讯">
 					<span class="wendu-news-span">${class_name}|</span>${content[0].title}</a></li>`
 					$('.wendu-news-ul-other').append(html)
+				}
+			},
+			dealWithEmptyDom:function(){
+				
+			}
+		}
+		all.dealWithDomAfterAjax(params)
+	}
+	//获取头条新闻
+	function getTopNews(id,class_name){
+		let params = {
+			method:'POST',
+			url: "<?=$api_url?>"+"app/list_news" ,
+			text:{
+				textWarn:'请求成功，'+class_name+'暂无数据',
+				textError:class_name+'请求失败',
+			},
+			data :{
+				app_class:'web',
+				user_token:window.token,
+				news_class_id:id
+			},
+			changeDomFn:function(content){
+				console.log(content)
+				// $('.wendu-news-ul-other').html('')
+				if($.isArray(content)&&content.length!=0){
+					
+					let html = `
+					<a href="<?=$file_url?>detail/detail-information.php?route=nav&nav=kaoyanInformation&news_info_id=${content[0].news_info_id}"  target="_blank">
+						<div class="news-title-ok select-none">今日头条<i class="fa fa-volume-up fa-left-padding"></i></div>
+						<div class="news-title-show">${content[0].title}</div>
+						<div class="clear"></div>
+					</a>`
+					$('.top-news-one').append(html)
 				}
 			},
 			dealWithEmptyDom:function(){
@@ -568,23 +621,64 @@ include $page_path.'/common/nav.php';
 			},
 			data :{
 				app_class:'web',
-				user_token:'token'
+				user_token:window.token
 			},
 			changeDomFn:function(content){
 				console.log(content)
 				$('.download-body').html('')
 				$.isArray(content)&&content.forEach((item,index)=>{
 					if(index<6){
-						let html = `<a href="<?=$file_url?>detail/detail-download.php?route=nav&nav=home&file_upload_id=${content[0].file_upload_id}" target="_blank" title="热门下载">
+						let html = `<a href="<?=$file_url?>detail/detail-download.php?route=nav&nav=home&file_upload_id=${item.file_upload_id}" target="_blank" title="热门下载">
 						<i class="fa fa-file-pdf-o"></i> 
-						<span class="WordJustOneLine">${item.file_name}</span>
+						<span class="WordJustOneLine">${item.file_zh_name}</span>
 						<i class="fa fa-upload"></i></a>`
 						$('.download-body').append(html)
 					}
 					
 				})
+			},
+			dealWithEmptyDom:function(){
 				
-				
+			}
+		}
+		all.dealWithDomAfterAjax(params)
+	}
+	//获取热门问答
+	function getHotAsk(){
+		let params = {
+			method:'POST',
+			url: "<?=$api_url?>"+"app/hot_ask_question" ,
+			text:{
+				textWarn:'请求成功，暂无数据',
+				textError:'请求失败',
+			},
+			data :{
+				app_class:'web',
+				user_token:window.token,
+				limit:3,
+				page:1
+			},
+			changeDomFn:function(content){
+				console.log(content)
+				$('.wendu-com-left').html('')
+				$.isArray(content)&&content.forEach((item,index)=>{
+
+						let html = `<li class="wendu-com-li">
+						    <img src="" class="com-cover" data-img_name="" title="" alt="封面图"/>
+						    <div class="com-txt">
+						        <h3 class="com-title">${item.ask_title}</h3>
+						        <div class="com-summary">${item.ask_description}</div>
+								<a class="com-a click" href="<?=$file_url?>detail/detail-community.php?route=nav&nav=home&ask_question_id=${item.ask_question_id}" title="详细内容-">更多内容</a>
+						       
+						    </div>
+							 
+						    <div class="clear"></div>
+						</li>`
+						
+						$('.wendu-com-left').append(html)
+					
+					
+				})
 			},
 			dealWithEmptyDom:function(){
 				
@@ -625,7 +719,7 @@ include $page_path.'/common/nav.php';
 					method:'POST',//ajax请求方法
 					data:{
 						app_class:'web',
-						user_token:'token',
+						user_token:window.token,
 						resource:'pc_baoming',
 						user_info:name+"#@首页报名",
 						user_phone:phone

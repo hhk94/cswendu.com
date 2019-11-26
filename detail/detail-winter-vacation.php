@@ -95,7 +95,11 @@ include $page_path.'/common/secNav.php';
 			<div class="detail-hot-center">
 				<!-- 1 -->
 				<div class="detail-hot-item clearfix">
-					<div class="detail-hot-item-img"></div>
+					<div class="detail-hot-item-img">
+						<img src="<?=$file_url?>/static/img/detail-winter-vacation-product1.jpg"
+						data-img_name="detail-winter-vacation-product1.jpg" 
+						alt="寒假集训营" title="寒假集训营">
+					</div>
 					<div class="detail-hot-item-word">
 						<div class="hot-item-word-left">
 							<h1>英语+数学</h1>
@@ -141,11 +145,19 @@ include $page_path.'/common/secNav.php';
 						</div>
 						
 					</div>
-					<div class="detail-hot-item-img"></div>
+					<div class="detail-hot-item-img">
+						<img src="<?=$file_url?>/static/img/detail-winter-vacation-product2.jpg"
+						data-img_name="detail-winter-vacation-product2.jpg" 
+						alt="寒假集训营" title="寒假集训营">
+					</div>
 				</div>
 				<!-- 3 -->
 				<div class="detail-hot-item clearfix">
-					<div class="detail-hot-item-img"></div>
+					<div class="detail-hot-item-img">
+						<img src="<?=$file_url?>/static/img/detail-winter-vacation-product3.jpg"
+						data-img_name="detail-winter-vacation-product3.jpg" 
+						alt="寒假集训营" title="寒假集训营">
+					</div>
 					<div class="detail-hot-item-word">
 						<div class="hot-item-word-left">
 							<h1>英语+396</h1>
@@ -187,7 +199,7 @@ include $page_path.'/common/secNav.php';
     // 页面数据入口，如有动态数据渲染，请以此函数为调用作为开始
     function page_data_init(){
         console_log("开始渲染数据");
-
+		geAllArea()
     }
 	$('.hk-btn').click(function(){
 		let name = $('.form-name input').val()
@@ -221,7 +233,7 @@ include $page_path.'/common/secNav.php';
 					method:'POST',//ajax请求方法
 					data:{
 						app_class:'web',
-						user_token:'token',
+						user_token:window.token,
 						resource:'pc_baoming',
 						user_info:name+"#@寒假集训营报名",
 						user_phone:phone

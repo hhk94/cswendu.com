@@ -349,7 +349,7 @@ let all = {
 			},
 			data : {
 				app_class:'web',
-				user_token:'token',
+				user_token:datas.token,
 				key:datas.key
 			},
 			changeDomFn:function(content){
