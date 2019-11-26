@@ -59,7 +59,7 @@
         <a class="nav-item-title-a" href="<?=$file_url?>detail/detail-onwork.php?route=nav&nav=workindex" title="在职考研" target="_blank"><div class="nav-item-title click nav-workindex">在职考研</div></a>
         <a class="nav-item-title-a" href="<?=$file_url?>teacher.php?route=nav&nav=teacher" title="文都师资" target="_blank"><div class="nav-item-title nav-teacher click">文都师资</div></a>
         <a class="nav-item-title-a" href="<?=$file_url?>information.php?route=nav&nav=information" title="考研资讯" target="_blank"><div class="nav-item-title click nav-information">考研资讯</div></a>
-        <a class="nav-item-title-a" href="#" title="考研社区" target="_blank"><div class="nav-item-title click">考研社区</div></a>
+        <!-- <a class="nav-item-title-a" href="#" title="考研社区" target="_blank"><div class="nav-item-title click">考研社区</div></a> -->
 
         <div class="clear"></div>
     </div>

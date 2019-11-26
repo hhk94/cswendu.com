@@ -53,10 +53,10 @@ include $page_path.'/common/nav.php';
 						</div>
 						<div class="detail-community-best-answer detail-community-answer-item">
 							<div class="detail-community-answer">
-								<h1 class="anser-name">1111</h1>
-								<h2 class="anser-time">2222</h1>
+								<h1 class="anser-name">暂无</h1>
+								<h2 class="anser-time">暂无</h1>
 							</div>
-							<div class="anser-body">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</div>
+							<div class="anser-body">暂无</div>
 						</div>
 						
 						<div class="anser-img">

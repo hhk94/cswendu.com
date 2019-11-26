@@ -516,7 +516,7 @@
 		    position: absolute;
 		    z-index: 6300;
 		    top: 0;
-		    left: calc(50% - 600px);
+		    left: calc(~"50% - 600px");
 		    background: rgba(0,0,0,0.5);
 		    color: white;
 		    padding: 15px 20px;
@@ -769,7 +769,8 @@
 	    border-radius: 15px;
 	    box-shadow: 0 0 10px lightgray;
 	    width: calc(~"25% - 40px");
-	    margin: 10px 20px;
+	    margin: 10px 0;
+	    // margin: 10px 20px;
 	    float: left;
 	    padding-bottom: 5px;
 	    cursor: pointer;
@@ -824,6 +825,9 @@
 		    height: 415px;
 		    background: #EEEEEE;
 		    margin-left: 20px;
+			img{
+				width: 100%;
+			}
 		}
 	}
 	.wendu-news{
@@ -860,6 +864,9 @@
 		    float: left;
 		    text-overflow:ellipsis;
 		    white-space: nowrap;
+			&:hover{
+				text-decoration: underline;
+			}
 		}
 		.wendu-news-ul{
 		    height: 200px;
@@ -1005,7 +1012,7 @@
 				    font-size: 16px;
 				    color: #1B1A1A;
 				    line-height: 26px;
-				    max-height: 50px;
+				    max-height: 64px;
 				    overflow: hidden;
 				    padding-left: 15px;
 				    padding-bottom: 0;
@@ -1042,6 +1049,12 @@
 			
 			img{
 				width: 100%;
+				position: absolute;
+				height: 100%;
+				left: -50%;
+				right: -50%;
+				margin-left: auto;
+				margin-right: auto
 			}
 		}
 		.kaoyankecheng-sub{
@@ -1110,7 +1123,7 @@
 	}
 	.kaoyankecheng-course-item{
 		width: 258px;
-		height:258px;
+		// height:258px;
 		border: 1px solid #c1c1c1;
 		border-radius: 20px;
 		margin:0 20px 10px 0;;
@@ -1150,6 +1163,7 @@
 		.kaoyankecheng-course-item-vip-bottom{
 			position: relative;
 			margin:0 8px;
+			padding-bottom: 23px;
 			h1{
 				width: 100%;
 				text-align: center;

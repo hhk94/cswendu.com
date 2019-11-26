@@ -61,8 +61,8 @@ include $page_path.'/common/nav.php';
         </div>
     </div>
 
-    <!---->
-    <div class="width-1200-center bg-white home-cell">
+    <!--鹰飞训练营模板-->
+<!--    <div class="width-1200-center bg-white home-cell">
         <h3 class="home-cell-title"><span class="home-cell-title-span">鹰飞训练营</span></h3>
         <div class="home-cell-content">
             <div class="cell-left">
@@ -70,39 +70,6 @@ include $page_path.'/common/nav.php';
             </div>
             <div class="cell-right jixunying">
 				<div class="kaoyankecheng-course-item noBorder">
-					<a href="" class="kaoyankecheng-course-item-vip-img"></a>
-					<div class="kaoyankecheng-course-item-vip-bottom">
-						<h1 class="WordJustOneLine">VIP高端辅导</h1>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授</p>
-						
-						<div class="kaoyankecheng-course-item-vip-ask click">在线咨询</div>
-					</div>
-				</div>
-				<div class="kaoyankecheng-course-item noBorder">
-					<div class="kaoyankecheng-course-item-vip-img"></div>
-					<div class="kaoyankecheng-course-item-vip-bottom">
-						<h1 class="WordJustOneLine">VIP高端辅导</h1>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授</p>
-						
-						<div class="kaoyankecheng-course-item-vip-ask click">在线咨询</div>
-					</div>
-				</div>
-				<div class="kaoyankecheng-course-item noBorder">
-					<div class="kaoyankecheng-course-item-vip-img"></div>
-					<div class="kaoyankecheng-course-item-vip-bottom">
-						<h1 class="WordJustOneLine">VIP高端辅导</h1>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授</p>
-						
-						<div class="kaoyankecheng-course-item-vip-ask click">在线咨询</div>
-					</div>
-				</div>
-				<div class="kaoyankecheng-course-item noBorder">
 					<div class="kaoyankecheng-course-item-vip-img"></div>
 					<div class="kaoyankecheng-course-item-vip-bottom">
 						<h1 class="WordJustOneLine">VIP高端辅导</h1>
@@ -112,16 +79,16 @@ include $page_path.'/common/nav.php';
 						<div class="kaoyankecheng-course-item-vip-ask click">在线咨询</div>
 					</div>
 				</div>
-
             </div>
-
             <div class="clear"></div>
         </div>
+    </div> -->
+	
+	
+	
 
-    </div>
-
-    <!---->
-    <div class="width-1200-center bg-white home-cell">
+    <!--彩虹卡模板-->
+<!--    <div class="width-1200-center bg-white home-cell">
         <h3 class="home-cell-title"><span class="home-cell-title-span">VIP高端辅导</span></h3>
         <div class="home-cell-content">
             <div class="cell-left">
@@ -139,50 +106,13 @@ include $page_path.'/common/nav.php';
 						<div class="kaoyankecheng-course-item-vip-ask click">在线咨询</div>
 					</div>
 				</div>
-				<div class="kaoyankecheng-course-item noBorder">
-					<div class="kaoyankecheng-course-item-vip-img"></div>
-					<div class="kaoyankecheng-course-item-vip-bottom">
-						<h1 class="WordJustOneLine">VIP高端辅导</h1>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">￥ <span class="kaoyankecheng-course-item-vip-price">8892</span><span>起</span></p>
-						<div class="kaoyankecheng-course-item-vip-ask click">在线咨询</div>
-					</div>
-				</div>
-				<div class="kaoyankecheng-course-item noBorder">
-					<div class="kaoyankecheng-course-item-vip-img"></div>
-					<div class="kaoyankecheng-course-item-vip-bottom">
-						<h1 class="WordJustOneLine">VIP高端辅导</h1>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">￥ <span class="kaoyankecheng-course-item-vip-price">8892</span><span>起</span></p>
-						<div class="kaoyankecheng-course-item-vip-ask click">在线咨询</div>
-					</div>
-				</div>
-				<div class="kaoyankecheng-course-item noBorder">
-					<div class="kaoyankecheng-course-item-vip-img"></div>
-					<div class="kaoyankecheng-course-item-vip-bottom">
-						<h1 class="WordJustOneLine">VIP高端辅导</h1>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">五阶四轮公共课面授</p>
-						<p class="WordJustOneLine noMargin">￥ <span class="kaoyankecheng-course-item-vip-price">8892</span><span>起</span></p>
-						<div class="kaoyankecheng-course-item-vip-ask click">在线咨询</div>
-					</div>
-				</div>
-				
-
             </div>
-
             <div class="clear"></div>
         </div>
+    </div> -->
 
-    </div>
-
-    <!---->
-    <div class="width-1200-center bg-white home-cell">
+    <!--定制课模板-->
+   <!-- <div class="width-1200-center bg-white home-cell">
         <h3 class="home-cell-title"><span class="home-cell-title-span">精品定制课程</span></h3>
         <div class="home-cell-content">
             <div class="cell-left half-height">
@@ -194,38 +124,15 @@ include $page_path.'/common/nav.php';
 					<div class="kaoyankecheng-course-item-vip-bottom">
 						<h1 class="WordJustOneLine jingping-word">VIP高端辅导</h1>
 						<div class="jingping-btn-parent">
-							<a class="jingping-btn" href="#" target="_self" title="查看详情">查看详情</a>
-							<div class="jingping-btn click">在线咨询</div>
-						</div>
-					</div>
-				</div>
-				<div class="kaoyankecheng-course-item noBorder">
-					<div class="kaoyankecheng-course-item-vip-img jingping-img"></div>
-					<div class="kaoyankecheng-course-item-vip-bottom">
-						<h1 class="WordJustOneLine jingping-word">VIP高端辅导</h1>
-						<div class="jingping-btn-parent">
-							<a class="jingping-btn" href="#" target="_self" title="查看详情">查看详情</a>
-							<div class="jingping-btn click">在线咨询</div>
-						</div>
-					</div>
-				</div>
-				<div class="kaoyankecheng-course-item noBorder">
-					<div class="kaoyankecheng-course-item-vip-img jingping-img"></div>
-					<div class="kaoyankecheng-course-item-vip-bottom">
-						<h1 class="WordJustOneLine jingping-word">VIP高端辅导</h1>
-						<div class="jingping-btn-parent">
 							<a class="jingping-btn" href="#" target="_self" title="查看详情" >查看详情</a>
 							<div class="jingping-btn click">在线咨询</div>
 						</div>
 					</div>
 				</div>
-
             </div>
-
             <div class="clear"></div>
         </div>
-
-    </div>
+    </div> -->
 
 
 
@@ -260,12 +167,51 @@ include $page_path.'/common/nav.php';
 				console.log(jsonRes)
 				$.isArray( jsonRes.content)&& jsonRes.content.forEach((item,index)=>{
 					if(item.course_class_name =='集训营'){
+						let html = `<div class="width-1200-center bg-white home-cell">
+									<h3 class="home-cell-title"><span class="home-cell-title-span">${item.course_class_name}</span></h3>
+									<div class="home-cell-content">
+										<div class="cell-left">
+											<img src="${item.course_class_cover}" data-img_name="" alt="考研课程">
+										</div>
+										<div class="cell-right jixunying">
+										</div>
+										<div class="clear"></div>
+									</div>
+								</div>`
+						$('.kaoyankecheng').append(html)
 						let course_class_id = item.course_class_id
 						getListCourse_jixun(course_class_id)
+						
 					}else if(item.course_class_name =='彩虹卡'){
+						let html = `
+						<div class="width-1200-center bg-white home-cell">
+						    <h3 class="home-cell-title"><span class="home-cell-title-span">${item.course_class_name}</span></h3>
+						    <div class="home-cell-content">
+						        <div class="cell-left">
+									<img src="${item.course_class_cover}" data-img_name="" alt="考研课程">
+						        </div>
+						        <div class="cell-right rainbow">
+						        </div>
+						        <div class="clear"></div>
+						    </div>
+						</div>`
+						$('.kaoyankecheng').append(html)
 						let course_class_id = item.course_class_id
 						getListCourse_rainbow(course_class_id)
 					}else if(item.course_class_name =='定制课'){
+						let html = `
+						<div class="width-1200-center bg-white home-cell">
+						    <h3 class="home-cell-title"><span class="home-cell-title-span">${item.course_class_name}</span></h3>
+						    <div class="home-cell-content">
+						        <div class="cell-left half-height">
+									<img src="${item.course_class_cover}" data-img_name="" alt="考研课程">
+						        </div>
+						        <div class="cell-right zhuanyeke">
+						        </div>
+						        <div class="clear"></div>
+						    </div>
+						</div>`
+						$('.kaoyankecheng').append(html)
 						let course_class_id = item.course_class_id
 						getListCourse_dingzhi(course_class_id)
 					}

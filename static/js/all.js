@@ -538,5 +538,12 @@ let all = {
 		let mounth = time.slice(4,6)
 		let date = time.slice(6,8)
 		return [year,mounth,date]
+	},
+	//
+	changeImgUrlForclear(url,clear){
+		let img_url1 = url.substr(0,(url.lastIndexOf('.')-2))
+		let img_url2 = url.substr(url.lastIndexOf('.'))
+		let img_url = img_url1+clear+img_url2
+		return img_url
 	}
 }

@@ -269,6 +269,12 @@ input[type="number"]{
 }
 .home-banner a>img{
 	width: 100%;
+	position: absolute;
+	height: 100%;
+	left: -50%;
+	right: -50%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 

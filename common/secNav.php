@@ -14,7 +14,7 @@
 				<a href="<?=$file_url?>detail/detail-onwork.php?route=nav&nav=workindex" title="在职考研" target="_blank" class="detail-jump-item nav-workindex">在职考研</a>
 				<a href="<?=$file_url?>teacher.php?route=nav&nav=teacher" title="文都师资" target="_blank" class="detail-jump-item nav-teacher">文都师资</a>
 				<a href="<?=$file_url?>information.php?route=nav&nav=information" title="考研资讯" target="_blank" class="detail-jump-item nav-information">考研资讯</a>
-				<a href="#" class="detail-jump-item" target="_blank">考研社区</a>
+				<!-- <a href="#" class="detail-jump-item" target="_blank">考研社区</a> -->
 			</div>
 		</div>
 	</header>
