@@ -151,7 +151,7 @@ include $page_path.'/common/nav.php';
 			url: "<?=$api_url?>"+"app/list_course_class" ,//ajax请求url
 			successfn:function(res){//ajax请求成功的回调
 				let jsonRes = $.parseJSON( res );
-				console.log(jsonRes)
+				console_log(jsonRes)
 				$.isArray( jsonRes.content)&& jsonRes.content.forEach((item,index)=>{
 					if(item.course_class_name =='热门课程（用于首页和推荐）'){
 						let course_class_id = item.course_class_id

@@ -38,7 +38,7 @@ include $page_path.'/common/nav.php';
 				<h1 class="title" id="title">文都考研一堆一标准是咋样的</h1>
 				<h2 class="detail-community-ask">
 					<span>问题描述：</span>
-					<span class="ask_description">休息休休息休休息休休息休休息休休息休休息休休息休休息休休息休休息休休息休休息休休息休休息休休息休休息休休息休休息休休息休休息休息</span>
+					<span class="ask_description"></span>
 					
 				</h2>
 				<h3 class="sectitle">
@@ -199,7 +199,7 @@ include $page_path.'/common/nav.php';
 		let html = `${times[0]}年${times[1]}月${times[2]}日`
 		$('.time').text(html)
 		$('.author').text(ask_user_name)
-		$('.ask_description').append(ask_description)
+		$('.ask_description').html(ask_description)
 	}	
 	//获取此问题回答
 	function getDetailAnswer(ask_question_id){

@@ -241,7 +241,10 @@ include $page_path.'/common/nav.php';
         <div class="home-cell-content">
             <div class="wendu-left">
                 <div class="wendu-1-content">
-					 <img src="./static/img/home-news-left.jpg"  data-img_name="home-news-left.jpg" title="考研流程" alt="考研流程"/>
+					<a href="">
+						 <img src="./static/img/home-news-left.jpg"  data-img_name="home-news-left.jpg" title="考研流程" alt="考研流程"/>
+					</a>
+					
                 </div>
             </div>
             <div class="wendu-news">
@@ -272,6 +275,12 @@ include $page_path.'/common/nav.php';
 						<a href="" target="_blank" title="热门下载"><i class="fa fa-file-pdf-o"></i> <span class="WordJustOneLine">2013392931文都考研词汇表</span><i class="fa fa-upload"></i></a>
 					</div>
                 </div>
+				<div class="home-download-banner">
+					<a href="#">
+						<img src="<?=$file_url?>/static/img/home-download-bottom-banner.jpg" data-img_name="home-download-bottom-banner.jpg" alt="文都考研banner" title="文都考研banner"/>
+					</a>
+					
+				</div>
             </div>
             <div class="clear"></div>
         </div>
@@ -401,7 +410,7 @@ include $page_path.'/common/nav.php';
 			url: "<?=$api_url?>"+"app/list_course_class" ,//ajax请求url
 			successfn:function(res){//ajax请求成功的回调
 				let jsonRes = $.parseJSON( res );
-				console.log(jsonRes)
+				console_log(jsonRes)
 				$.isArray( jsonRes.content)&& jsonRes.content.forEach((item,index)=>{
 					if(item.course_class_name =='热门课程（用于首页和推荐）'){
 						let course_class_id = item.course_class_id
@@ -526,7 +535,7 @@ include $page_path.'/common/nav.php';
 						<div class="teacher-item-name">${item.teacher_name}</div>
 						<div class="teacher-item-txt">${item.teacher_grading}</div>
 					</a>`
-					// console.log(html)
+					// console_log(html)
 					 $('.teacher-swiper-wrapper').append(html)
 				})
 				hotTeacherSwiperInit()
@@ -576,7 +585,7 @@ include $page_path.'/common/nav.php';
 				user_token:window.token
 			},
 			changeDomFn:function(content){
-				console.log(content)
+				console_log(content)
 				$.isArray(content)&&content.forEach((item,index)=>{
 					if(item.class_name=='考研资讯'){
 						getNewsList(item.news_class_id,item.class_name)
@@ -614,7 +623,7 @@ include $page_path.'/common/nav.php';
 				limit:6
 			},
 			changeDomFn:function(content){
-				console.log(content)
+				console_log(content)
 				$('.wendu-news-ul').html('')
 				$.isArray(content)&&content.forEach((item,index)=>{
 					let html = `<li class="wendu-news-li"><a href="<?=$file_url?>detail/detail-information.php?route=nav&nav=kaoyanInformation&news_info_id=${item.news_info_id}" target="_blank" title="文都资讯">
@@ -646,7 +655,7 @@ include $page_path.'/common/nav.php';
 				limit:1
 			},
 			changeDomFn:function(content){
-				console.log(content)
+				console_log(content)
 				// $('.wendu-news-ul-other').html('')
 				if($.isArray(content)&&content.length!=0){
 					
@@ -680,7 +689,7 @@ include $page_path.'/common/nav.php';
 				news_class_id:id
 			},
 			changeDomFn:function(content){
-				console.log(content)
+				console_log(content)
 				// $('.wendu-news-ul-other').html('')
 				if($.isArray(content)&&content.length!=0){
 					
@@ -712,10 +721,10 @@ include $page_path.'/common/nav.php';
 				app_class:'web',
 				user_token:window.token,
 				page:1,
-				limit:10
+				limit:7
 			},
 			changeDomFn:function(content){
-				console.log(content)
+				console_log(content)
 				$('.download-body').html('')
 				$.isArray(content)&&content.forEach((item,index)=>{
 					let html = `<a href="<?=$file_url?>detail/detail-download.php?route=nav&nav=home&file_upload_id=${item.file_upload_id}" target="_blank" title="热门下载">
@@ -748,22 +757,19 @@ include $page_path.'/common/nav.php';
 				page:1
 			},
 			changeDomFn:function(content){
-				console.log(content)
+				console_log(content)
 				$('.wendu-com-left').html('')
 				$.isArray(content)&&content.forEach((item,index)=>{
-
 						let html = `<li class="wendu-com-li">
-						    <img src="<?=$file_url?>static/img/home-ask-${index}.jpg" class="com-cover" data-img_name="home-ask-1.jpg" title="" alt="封面图"/>
+						    <img src="<?=$file_url?>static/img/home-ask-${index}.jpg" class="com-cover" title="" alt="封面图"/>
 						    <div class="com-txt">
 						        <h3 class="com-title">${item.ask_title}</h3>
 						        <div class="com-summary">${item.ask_description}</div>
-								<a class="com-a click" href="<?=$file_url?>detail/detail-community.php?route=nav&nav=home&ask_question_id=${item.ask_question_id}" title="详细内容-">更多内容</a>
+								<a target="_blank" class="com-a click" href="<?=$file_url?>detail/detail-community.php?route=nav&nav=home&ask_question_id=${item.ask_question_id}" title="详细内容-">查看详情</a>
 						    </div>
 						    <div class="clear"></div>
 						</li>`
-						$('.wendu-com-left').append(html)
-					
-					
+						$('.wendu-com-left').append(html)	
 				})
 			},
 			dealWithEmptyDom:function(){

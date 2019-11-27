@@ -706,6 +706,7 @@
 	.course-div{
 	    padding-top: 10px;
 	    padding-bottom: 30px;
+		overflow: hidden;
 		.course-item{
 		    width: calc(~"25% - 26px");
 		    float: left;
@@ -825,9 +826,13 @@
 		    height: 415px;
 		    background: #EEEEEE;
 		    margin-left: 20px;
-			img{
-				width: 100%;
+			a{
+				display: block;
+				img{
+					width: 100%;
+				}
 			}
+			
 		}
 	}
 	.wendu-news{
@@ -911,14 +916,16 @@
 	
 	.wendu-right{
 	    float: right;
-	    border-left: 1px solid #CBC9C7;
+	    // border-left: 1px solid #CBC9C7;
 	    width: 395px;
 	    min-height: 230px;
-	    padding: 0 20px;
+	    // padding: 0 20px;
 	    /*background: #EEEEEE;*/
 		.wendu-3-content{
-		    width: calc(~"100% - 0px");
-		    min-height: 20px;
+		    width: calc(100% - 0px);
+			padding: 0 20px;
+			min-height: 20px;
+			border-left: 1px solid #CBC9C7;
 			.wendu-3-title{
 			    font-size: 16px;
 			    font-weight: 600;
@@ -950,6 +957,17 @@
 						color: #fd1849;
 						margin-top: 3px;
 					}
+				}
+			}
+			
+		}
+		.home-download-banner{
+			width: 237px;
+			margin: 20px auto 0 auto;
+			a{
+				display: block;
+				img{
+					width: 100%;
 				}
 			}
 			
@@ -1999,6 +2017,10 @@
 				.right-top{
 					height: 184px;
 					background: white;
+					overflow: hidden;
+					img{
+						width: 100%;
+					}
 				}
 				.hot-recommend{
 					margin-top: @margin-top;

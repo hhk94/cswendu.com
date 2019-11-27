@@ -83,11 +83,11 @@ include $page_path.'/common/nav.php';
 	var [limit,pages] = [12,1];
 	var teacher_class_id = ''
 	
-	// console.log(window.token)
+	// console_log(window.token)
     // 页面数据入口，如有动态数据渲染，请以此函数为调用作为开始
     function page_data_init(){
         console_log("开始渲染数据");
-		// console.log(window.token)
+		// console_log(window.token)
 		
 		getClass()
 		getTeacherList(limit,pages,teacher_class_id)
@@ -116,7 +116,7 @@ include $page_path.'/common/nav.php';
 	function teacherType(content){
 		
 		$.isArray(content)&&content.forEach((item,index)=>{
-			// console.log(times)
+			// console_log(times)
 			let html = `<div class="teacher-type-item" data-teacher_class_id='${item.teacher_class_id}'>${item.class_name}</div>`
 			$('.teacher-type').append(html)
 		})
@@ -127,7 +127,7 @@ include $page_path.'/common/nav.php';
 		
 		teacher_class_id = all.getItemDataAttr($(this),'teacher_class_id')
 		$(this).addClass('selected').siblings().removeClass('selected')
-		// console.log(teacher_class_id )
+		// console_log(teacher_class_id )
 		getTeacherList(limit,pages,teacher_class_id)
 	});
 	
@@ -168,7 +168,7 @@ include $page_path.'/common/nav.php';
 		//列表清空
 		$('.teacher-list').html('')
 		$.isArray(content)&&content.forEach((item,index)=>{
-			// console.log(times)
+			// console_log(times)
 			let html = `<a href="<?=$file_url?>detail/detail-teacher.php?route=nav&nav=teacher&teacher_id=${item.teacher_id}" class="teacher-list-item" target="_blank" title="文都名师">
 					<div class="teacher-img">
 						<img src="${item.teacher_cover}" alt="">

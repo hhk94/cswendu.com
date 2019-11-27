@@ -106,7 +106,7 @@ include $page_path.'/common/nav.php';
 			</div>
 			<div class="right">
 				<div class="right-top">
-					
+					<img src="<?=$file_url?>/static/img/information-right-top-banner1.jpg" data-img_name="information-right-top-banner1.jpg" alt="文都考研banner" title="文都考研banner"/>
 				</div>
 				<div class="hot-recommend">
 					<h1>热点推荐</h1>
@@ -184,7 +184,7 @@ include $page_path.'/common/nav.php';
 	$(document).on('click', '.news-type-item', function() {
 		news_class_id = all.getItemDataAttr($(this),'news_class_id')
 		$(this).addClass('selected').siblings().removeClass('selected')
-		// console.log(teacher_class_id )
+		// console_log(teacher_class_id )
 		getNewsList(limit,pages,news_class_id);
 	});
 	
@@ -226,7 +226,7 @@ include $page_path.'/common/nav.php';
 		$.isArray(content)&&content.forEach((item,index)=>{
 			
 			let times = all.getTime(item.create_time)
-			// console.log(times)
+			// console_log(times)
 			let html = `<a class="list-item" href="<?=$file_url?>detail/detail-information.php?route=nav&nav=kaoyanInformation&news_info_id=${item.news_info_id}" target="_blank">
 				<div class="img"><img src="${item.cover}" alt=""></div>
 				<div class="word">

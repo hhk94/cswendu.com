@@ -49,7 +49,7 @@ include $page_path.'/common/nav.php';
 			</div>
 			<div class="right">
 				<div class="right-top">
-					
+					<img src="<?=$file_url?>/static/img/information-right-top-banner1.jpg" data-img_name="information-right-top-banner1.jpg" alt="文都考研banner" title="文都考研banner"/>
 				</div>
 				<div class="hot-recommend">
 					<h1>热点推荐</h1>

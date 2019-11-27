@@ -195,7 +195,7 @@ include $page_path.'/common/nav.php';
 					url:"<?=$api_url?>"+"app/check_code_sms",//ajax请求url
 					successfn:function(res){//ajax请求成功的回调
 						let jsonRes = $.parseJSON( res );
-						console.log(jsonRes)
+						console_log(jsonRes)
 						if(jsonRes.state==1){
 						//制作下载链接
 						let file_upload_id = all.getQueryString("file_upload_id")
@@ -224,7 +224,7 @@ include $page_path.'/common/nav.php';
 			url:"<?=$api_url?>"+"app/make_file_href",//ajax请求url
 			successfn:function(res){//ajax请求成功的回调
 				let jsonRes = $.parseJSON( res );
-				console.log(jsonRes)
+				console_log(jsonRes)
 				if(jsonRes.state==1){
 					$('.true-download-btn').attr("href",jsonRes.content.file_url)
 				}
@@ -247,9 +247,9 @@ include $page_path.'/common/nav.php';
 				file_upload_id:file_upload_id
 			},
 			changeDomFn:function(content){
-				console.log(content)
+				console_log(content)
 				if(content.length!=0){
-					// console.log('aas')
+					// console_log('aas')
 					let html = content.file_zh_name
 					$('.info-name').text(html)
 				}

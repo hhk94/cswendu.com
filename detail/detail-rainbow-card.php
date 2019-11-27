@@ -63,7 +63,7 @@ include $page_path.'/common/secNav.php';
     }
 	$('.tabs-item').click(function(){
 		let img_name = $(this).data("img_name")
-		console.log(img_name)
+		console_log(img_name)
 		$('.rainbow-img img').attr({
 			src:'<?=$file_url?>/static/img/'+img_name,
 			'data-img_name':img_name
