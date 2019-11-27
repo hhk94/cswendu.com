@@ -101,6 +101,7 @@ include $page_path.'/common/nav.php';
 		console_log(teacher_id)
 		getDetailTeacher(teacher_id)
 		geAllArea()
+		getCourseTypeForSpacial()
     }
 	//获取分页数据
 	function getDetailTeacher(teacher_id){
@@ -123,12 +124,10 @@ include $page_path.'/common/nav.php';
 				    total:jsonRes.paging.total,//数据总条数,后台返回
 				    backFun:function(page){
 				        //点击分页按钮回调函数，返回当前页码
-						
 				        getNewsList(limit,page);
 				    }
 				});
 			}
-			
 		}
 		all.sendAjax(params)
 	}
@@ -139,9 +138,65 @@ include $page_path.'/common/nav.php';
 		$('.teacher_grading>span').html(content.teacher_grading)
 		$('.teacher_books>span').html(content.teacher_books)
 		$('.img-cover>img').attr("src",content.teacher_cover)
-		
 	}
-
+//获取专题页内容 - 并插入
+	function getCourseTypeForSpacial(){
+		let params = {
+			method:'POST',//ajax请求方法
+			data:{
+				app_class:'web',
+				user_token:window.token,
+				course_class_id:'all'
+			},//ajax请求参数
+			url: "<?=$api_url?>"+"app/list_course_class" ,//ajax请求url
+			successfn:function(res){//ajax请求成功的回调
+				let jsonRes = $.parseJSON( res );
+				console.log(jsonRes)
+				$.isArray( jsonRes.content)&& jsonRes.content.forEach((item,index)=>{
+					if(item.course_class_name =='热门课程（用于首页和推荐）'){
+						let course_class_id = item.course_class_id
+						getList_Spacial(course_class_id)
+					}			
+				})
+			}
+		}
+		all.sendAjax(params)
+	}
+	//插入专题页
+	function getList_Spacial(course_class_id){
+		let params = {
+			method:'POST',
+			url: "<?=$api_url?>"+"app/list_course" ,
+			text:{
+				textWarn:'请求成功，暂无数据',
+				textError:'请求失败',
+			},
+			data :{
+				app_class:'web',
+				user_token:window.token,
+				course_id:'all',
+				course_class_id:course_class_id
+			},
+			changeDomFn:function(content){
+				console_log(content)
+				$('.lecture-body').html('')
+				$.isArray(content)&&content.forEach((item,index)=>{
+					let html = `
+						<a href="${item.course_url}" class="lecture-item" target="_blank">
+							<div class="lecture-img">
+								<img src="${item.course_cover}" class="hot-course-cover"  title="课程海报" alt="课程海报" />
+							</div>
+							<h1 class="lecture-name">${item.course_name}</h1>
+							<h3 class="lecture-info">${item.course_description}</h3>
+						</a>`
+					$('.lecture-body').append(html)
+				})
+			},
+			dealWithEmptyDom:function(){
+			}
+		}
+		all.dealWithDomAfterAjax(params)
+	}
 </script>
 <!--结束-页面js-->
 

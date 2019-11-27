@@ -1,5 +1,5 @@
 <?php
-$title = '考研资讯'; // 模块页标题，每个页面自定义
+$title = '文都师资'; // 模块页标题，每个页面自定义
 $page_path = dirname(__FILE__); // 项目index的根目录
 include $page_path.'/common/head.php';
 include $page_path.'/common/nav.php';
@@ -108,9 +108,7 @@ include $page_path.'/common/nav.php';
 				console_log(jsonRes)
 				let content = jsonRes.content
 				teacherType(content)
-				
 			}
-			
 		}
 		all.sendAjax(params)
 	}
@@ -132,6 +130,7 @@ include $page_path.'/common/nav.php';
 		// console.log(teacher_class_id )
 		getTeacherList(limit,pages,teacher_class_id)
 	});
+	
 	//获取分页数据
 	function getTeacherList(limit,pages,teacher_class_id){
 		let params = {

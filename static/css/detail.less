@@ -1878,7 +1878,7 @@
 				background: white;
 				width: 910px;
 				padding: 20px;
-				min-height: 1478px;
+				min-height: 1585px;
 				position: relative;
 				.title{
 					position: relative;
@@ -1897,6 +1897,28 @@
 						top: 0;
 						width: 100px;
 						height: 4px;
+					}
+					
+				}
+				.news-type-body{
+					
+					overflow: hidden;
+					.news-type-item{
+						float: left;
+						font-size: 16px;
+						margin: 3px 6px;
+						padding: 2px 8px;
+						transition: all 0.2s;
+						cursor: pointer;
+						text-align: center;
+						&:hover{
+							color: white;
+							background: #45dbac;
+						}
+						&.selected{
+							color: white;
+							background: #45dbac;
+						}
 					}
 				}
 				.list{

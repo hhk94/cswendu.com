@@ -152,7 +152,7 @@ include $page_path.'/common/nav.php';
 		geAllArea()
     }
 	
-	//获取课程分类
+	//获取课程分类 - 根据分类插入dom-body - 根据class_id 插入不同分类的数据
 	function getCourseType(){
 		let params = {
 			method:'POST',//ajax请求方法

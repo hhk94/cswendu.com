@@ -387,7 +387,72 @@ include $page_path.'/common/nav.php';
 		geAllArea()
 		getNewsType()
 		getHotAsk()
+		getCourseTypeForSpacial()
     }
+	//获取专题页内容 - 并插入
+	function getCourseTypeForSpacial(){
+		let params = {
+			method:'POST',//ajax请求方法
+			data:{
+				app_class:'web',
+				user_token:window.token,
+				course_class_id:'all'
+			},//ajax请求参数
+			url: "<?=$api_url?>"+"app/list_course_class" ,//ajax请求url
+			successfn:function(res){//ajax请求成功的回调
+				let jsonRes = $.parseJSON( res );
+				console.log(jsonRes)
+				$.isArray( jsonRes.content)&& jsonRes.content.forEach((item,index)=>{
+					if(item.course_class_name =='热门课程（用于首页和推荐）'){
+						let course_class_id = item.course_class_id
+						getList_Spacial(course_class_id)
+					}			
+				})
+			}
+		}
+		all.sendAjax(params)
+	}
+	//插入专题页
+	function getList_Spacial(course_class_id){
+		let params = {
+			method:'POST',
+			url: "<?=$api_url?>"+"app/list_course" ,
+			text:{
+				textWarn:'请求成功，暂无数据',
+				textError:'请求失败',
+			},
+			data :{
+				app_class:'web',
+				user_token:window.token,
+				course_id:'all',
+				course_class_id:course_class_id
+			},
+			changeDomFn:function(content){
+				console_log(content)
+				$('.course-div').html('')
+				$.isArray(content)&&content.forEach((item,index)=>{
+					let html = ` 
+						<div class="course-item">
+							<a href="${item.course_url}" target="_blank">
+								<img src="${item.course_cover}" class="hot-course-cover"  title="课程海报" alt="课程海报" />
+							</a>
+							<div class="clear"></div>
+							<div class="hot-course-content">
+								<div class="hot-course-name">${item.course_name}</div>
+								<div class="hot-course-description">${item.course_slogan}</div>
+								<div class="hot-course-info">${item.course_description}</div>
+								<span class="hot-course-ask click">免费咨询</span>
+							</div>
+						</div>`
+					$('.course-div').append(html)
+				})
+			},
+			dealWithEmptyDom:function(){
+			}
+		}
+		all.dealWithDomAfterAjax(params)
+	}
+	//banner轮播图
 	function bannerSwiperInit(){
 		var swiper = new Swiper('.homeBanner-swiper-container', {
 		  pagination: {
@@ -400,6 +465,7 @@ include $page_path.'/common/nav.php';
 		  },
 		});
 	}
+	//热门老师轮播图
 	function hotTeacherSwiperInit(){
 		var swiper = new Swiper('.teacher-swiper-container', {
 		  slidesPerView: 4,
@@ -485,15 +551,10 @@ include $page_path.'/common/nav.php';
 			data : {
 				app_class:'web',
 				user_token:window.token,
-				
 			},
 			changeDomFn:function(content){
-					console.log(content)
 					
-					 $('.show-imp-sub-body').html(content)
-				
-				
-				
+					 $('.show-imp-sub-body').html(content)	
 			},	
 			dealWithEmptyDom:function(){
 				$('.teacher-content').html('')
@@ -548,17 +609,17 @@ include $page_path.'/common/nav.php';
 			data :{
 				app_class:'web',
 				user_token:window.token,
-				news_class_id:id
+				news_class_id:id,
+				page:1,
+				limit:6
 			},
 			changeDomFn:function(content){
 				console.log(content)
 				$('.wendu-news-ul').html('')
 				$.isArray(content)&&content.forEach((item,index)=>{
-					if(index<6){
-						let html = `<li class="wendu-news-li"><a href="<?=$file_url?>detail/detail-information.php?route=nav&nav=kaoyanInformation&news_info_id=${item.news_info_id}" target="_blank" title="文都资讯">
-						<span class="wendu-news-span">[${class_name}]</span>${item.title}</a></li>`
-						 $('.wendu-news-ul').append(html)
-					}
+					let html = `<li class="wendu-news-li"><a href="<?=$file_url?>detail/detail-information.php?route=nav&nav=kaoyanInformation&news_info_id=${item.news_info_id}" target="_blank" title="文都资讯">
+					<span class="wendu-news-span">[${class_name}]</span>${item.title}</a></li>`
+					 $('.wendu-news-ul').append(html)
 					
 				})
 			},
@@ -580,17 +641,23 @@ include $page_path.'/common/nav.php';
 			data :{
 				app_class:'web',
 				user_token:window.token,
-				news_class_id:id
+				news_class_id:id,
+				page:1,
+				limit:1
 			},
 			changeDomFn:function(content){
 				console.log(content)
 				// $('.wendu-news-ul-other').html('')
 				if($.isArray(content)&&content.length!=0){
-					let html = `<li class="wendu-news-li">
-					<a href="<?=$file_url?>detail/detail-information.php?route=nav&nav=kaoyanInformation&news_info_id=${content[0].news_info_id}" target="_blank" title="文都资讯">
-					<span class="wendu-news-span">${class_name}|</span>${content[0].title}</a></li>`
-					$('.wendu-news-ul-other').append(html)
+					
 				}
+				$.isArray(content)&&content.forEach((item,index)=>{
+					let html = `<li class="wendu-news-li">
+					<a href="?=$file_url?>detail/detail-information.php?route=nav&nav=kaoyanInformation&news_info_id=${item.news_info_id}" target="_blank" title="文都资讯">
+					<span class="wendu-news-span">${class_name}|</span>${item.title}</a></li>`
+					$('.wendu-news-ul-other').append(html)
+					
+				})
 			},
 			dealWithEmptyDom:function(){
 				
@@ -643,19 +710,19 @@ include $page_path.'/common/nav.php';
 			},
 			data :{
 				app_class:'web',
-				user_token:window.token
+				user_token:window.token,
+				page:1,
+				limit:10
 			},
 			changeDomFn:function(content){
 				console.log(content)
 				$('.download-body').html('')
 				$.isArray(content)&&content.forEach((item,index)=>{
-					if(index<6){
-						let html = `<a href="<?=$file_url?>detail/detail-download.php?route=nav&nav=home&file_upload_id=${item.file_upload_id}" target="_blank" title="热门下载">
-						<i class="fa fa-file-pdf-o"></i> 
-						<span class="WordJustOneLine">${item.file_zh_name}</span>
-						<i class="fa fa-upload"></i></a>`
-						$('.download-body').append(html)
-					}
+					let html = `<a href="<?=$file_url?>detail/detail-download.php?route=nav&nav=home&file_upload_id=${item.file_upload_id}" target="_blank" title="热门下载">
+					<i class="fa fa-file-pdf-o"></i> 
+					<span class="WordJustOneLine">${item.file_zh_name}</span>
+					<i class="fa fa-upload"></i></a>`
+					$('.download-body').append(html)
 					
 				})
 			},

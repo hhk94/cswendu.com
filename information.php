@@ -33,7 +33,14 @@ include $page_path.'/common/nav.php';
     <section class="center">
 		<div class="width-1200-center">
 			<div class="center-body">
-				<h1 class="title">考研资讯</h1>
+				<h1 class="title">考研资讯
+					
+				</h1>
+				<div class="news-type-body">
+					<div class="news-type-item selected " data-teacher_class_id=''>全部</div>
+					
+					
+				</div>
 				<div class="list list-information">
 					<a class="list-item" href="" target="_blank">
 						<div class="img"><img src="" alt=""></div>
@@ -137,24 +144,59 @@ include $page_path.'/common/nav.php';
 </script>
 <script>
     // 页面数据入口，如有动态数据渲染，请以此函数为调用作为开始
+	var [limit,pages] = [7,1];
+	var news_class_id = "";
     function page_data_init(){
         console_log("开始渲染数据");
 	
-		let [limit,pages] = [7,1];
+		
 		// getBanner()
-		getNewsList(limit,pages)
+		getNewsList(limit,pages,news_class_id)
 		geAllArea()
 		getHot()
+		getClass()
     }
+	function getClass(){
+		let params = {
+			method:'POST',
+			url: "<?=$api_url?>"+"app/list_news_class" ,
+			data :{
+				app_class:'web',
+				user_token:window.token,
+				news_class_id:'all',		
+			},
+			successfn:function(res){
+				let jsonRes = $.parseJSON( res );
+				console_log(jsonRes)
+				let content = jsonRes.content
+				newsType(content)
+			}
+		}
+		all.sendAjax(params)
+	}
+	//新增分类
+	function newsType(content){
+		$.isArray(content)&&content.forEach((item,index)=>{
+			let html = `<div class="news-type-item" data-news_class_id='${item.news_class_id}'>${item.class_name}</div>`
+			$('.news-type-body').append(html)
+		})
+	}
+	$(document).on('click', '.news-type-item', function() {
+		news_class_id = all.getItemDataAttr($(this),'news_class_id')
+		$(this).addClass('selected').siblings().removeClass('selected')
+		// console.log(teacher_class_id )
+		getNewsList(limit,pages,news_class_id);
+	});
+	
 	//获取分页数据
-	function getNewsList(limit,pages){
+	function getNewsList(limit,pages,news_class_id){
 		let params = {
 			method:'POST',
 			url: "<?=$api_url?>"+"app/list_news" ,
 			data :{
 				app_class:'web',
 				user_token:window.token,
-				list_news_id:'all',
+				news_class_id:news_class_id,
 				page:pages,
 				limit:limit
 			},
@@ -170,7 +212,7 @@ include $page_path.'/common/nav.php';
 				    backFun:function(page){
 				        //点击分页按钮回调函数，返回当前页码
 						
-				        getNewsList(limit,page);
+				        getNewsList(limit,page,news_class_id);
 				    }
 				});
 			}
