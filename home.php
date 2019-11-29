@@ -325,7 +325,10 @@ include $page_path.'/common/nav.php';
 	
 	        </ul>
 	        <div class="wendu-com-right">
-	
+				<a href="#">
+					<img src="<?=$file_url?>/static/img/home-ask-right-banner1.jpg"  data-img_name="home-ask-right-banner1.jpg" title="封面图" alt="封面图"/>
+				</a>
+				
 	        </div>
 	
 	        <div class="clear"></div>
